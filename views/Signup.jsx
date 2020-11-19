@@ -1,8 +1,8 @@
 const React = require("react");
 
-function Signup() {
+function Signup(props) {
   return (
-    <form action="" method="post">
+    <form action="/auth/signup" method="post">
       <input type="text" name="username" />
       <br />
       <input type="password" name="password" />
