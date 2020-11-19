@@ -10,7 +10,7 @@ const productSchema = new Schema(
     description: { type: String },
     image: String,
     condition: { type: Number },
-    seller: [{ type: mongoose.SchemaType.ObjectId, ref: "User" }],
+    seller: [{ type: Schema.Types.ObjectId, ref: "User" }],
   },
   {
     timestamps: {
