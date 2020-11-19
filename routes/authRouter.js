@@ -37,25 +37,25 @@ authRouter.post("/signup", (req, res, next) => {
   }
 
   User.findOne({ username: username })
-    .then((user) => {
-      if (user) {
-        const props = { errorMessage: "User already exists" };
-        res.render("Signup", props);
-        return;
-      }
+  .then((user) => {
+    if (user) {
+      const props = { errorMessage: "User already exists" };
+      res.render("Signup", props);
+      return;
+    }
 
-      // if user available, encrypt
-      const salt = bcrypt.genSaltSync(saltRounds);
-      const hashedPassword = bcrypt.hashSync(password, salt);
+    // if user available, encrypt
+    const salt = bcrypt.genSaltSync(saltRounds);
+    const hashedPassword = bcrypt.hashSync(password, salt);
 
-      // After encrypting the password, create the new user in DB
-      User.create({ username, password: hashedPassword })
-        .then((createdUser) => {
-          res.redirect("/");
+    // After encrypting the password, create the new user in DB
+    User.create( {username, password: hashedPassword})
+        .then( (createdUser)=>{
+            res.redirect("/")
         })
-        .catch((err) => console.log(err));
-    })
-    .catch((err) => console.log(err));
+        .catch( (err) => console.log(err));
+  })
+  .catch( (err) => console.log(err));
 });
 
 module.exports = authRouter;
