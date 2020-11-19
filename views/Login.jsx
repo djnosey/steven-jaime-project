@@ -3,14 +3,14 @@ const React = require("react");
 function Login(props) {
   return (
     <form action="/auth/login" method="post">
-      <input type="text" name="username" />
+      <input type="text" name="username" placeholder="username" />
       <br />
-      <input type="password" name="password" />
+      <input type="password" name="password" placeholder="password" />
       <br />
-      <button type="submit">click me</button>
+      <button type="submit">Click me</button>
       <div id="errorMessages"></div>
       <p>
-        don't have an account?<a href="/auth/signup">click here</a>
+        Don't have an account?<a href="/auth/signup">Click here</a>
       </p>
     </form>
   );

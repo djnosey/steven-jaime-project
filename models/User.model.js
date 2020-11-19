@@ -7,9 +7,17 @@ const userSchema = new Schema(
     username: { type: String, unique: true },
     password: { type: String },
     image: { type: String },
-    // transactions: [{ type: mongoose.SchemaType.ObjectId, ref: "Product" }],
-    // myItems: [{ type: mongoose.SchemaType.ObjectId, ref: "Product" }],
-    // messages: [{ type: mongoose.SchemaType.ObjectId, ref: "Product" }],
+    transactions: [
+      { productRequested: { type: Schema.Types.ObjectId, ref: "Product" } },
+      { productOffer: { type: Schema.Types.ObjectId, ref: "Product" } },
+      { approved: Boolean },
+    ],
+    products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
+    requests: [
+      { productRequested: { type: Schema.Types.ObjectId, ref: "Product" } },
+      { productOffer: { type: Schema.Types.ObjectId, ref: "Product" } },
+      { approved: { type: Boolean } },
+    ],
   },
   {
     timestamps: {
