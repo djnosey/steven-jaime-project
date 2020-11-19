@@ -9,7 +9,7 @@ function Signup(props) {
       <br />
       <input type="password" name="repeatPassword" />
       <button type="submit">click me</button>
-      <div id="errorMessages"></div>
+      <div id="errorMessages">{props.errorMessage}</div>
     </form>
   );
 }
