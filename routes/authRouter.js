@@ -6,7 +6,7 @@ const User = require("../models/User.model");
 const zxcvbn = require("zxcvbn");
 
 // Helper middleware
-
+const isLoggedIn = require("./../utils/isLoggedIn");
 const saltRounds = 10;
 
 // Your routes
@@ -95,6 +95,17 @@ authRouter.post("/login", (req, res, next) => {
   });
 });
 
+// LOG OUT -----------
+
 // GET     /auth/logout
+authRouter.get("/login", isLoggedIn, (req, res, next) => {
+  req.session.destroy((err) => {
+    if (err) {
+      res.render("Error");
+    } else {
+      res.redirect("/");
+    }
+  });
+});
 
 module.exports = authRouter;
