@@ -9,7 +9,13 @@ function Layout(props) {
         <link rel="stylesheet" href="/stylesheets/style.css" />
       </head>
 
-      <body>{props.children}</body>
+      <body>
+      <nav id="navbarContainer">
+        <img src="" alt=""/>
+        <input type="text"/>
+      </nav>
+      {props.children}
+      </body>
     </html>
   );
 }
