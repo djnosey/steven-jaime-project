@@ -5,18 +5,12 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User.model");
 const zxcvbn = require("zxcvbn");
 
-// Helper middleware
-
 const saltRounds = 10;
 
-// Your routes
-
-// GET     /auth/signup
 authRouter.get("/signup", (req, res, next) => {
   res.render("Signup");
 });
 
-// POST      /auth/signup
 authRouter.post("/signup", (req, res, next) => {
   const { username, password } = req.body;
 
