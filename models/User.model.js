@@ -1,28 +1,27 @@
-// Model
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-//Create Schema
-
+// CREATE SCHEMA
 const userSchema = new Schema(
   {
-    name: { type: String, unique: true },
+    username: { type: String, unique: true },
     password: { type: String },
-    image: String,
-    transactions: [{ type: mongoose.SchemaType.ObjectId, ref: "Product" }],
-    myItems: [{ type: mongoose.SchemaType.ObjectId, ref: "Product" }],
-    messages: [{ type: mongoose.SchemaType.ObjectId, ref: "Product" }],
+    image: { type: String },
+    // transactions: [{ type: mongoose.SchemaType.ObjectId, ref: "Product" }],
+    // myItems: [{ type: mongoose.SchemaType.ObjectId, ref: "Product" }],
+    // messages: [{ type: mongoose.SchemaType.ObjectId, ref: "Product" }],
   },
   {
     timestamps: {
-      createdAt: "created_at",
+      createdAt: "create_at",
       updatedAt: "updated_at",
     },
   }
 );
 
-// Create the model
+// CREATE MODEL
+//                          `users`
 const User = mongoose.model("User", userSchema);
 
-// Exports
+// EXPORT THE MODEL
 module.exports = User;

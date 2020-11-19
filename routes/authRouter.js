@@ -2,7 +2,7 @@ const express = require("express");
 const authRouter = express.Router();
 
 const bcrypt = require("bcrypt");
-const User = require("./../models/User.model");
+const User = require("../models/User.model");
 const zxcvbn = require("zxcvbn");
 
 // Helper middleware
