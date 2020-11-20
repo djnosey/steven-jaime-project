@@ -12,12 +12,26 @@ const saltRounds = 10;
 // ROUTES
 
 // GET      /user/profile  - Render the profile view
-userRouter.get("/profile", (req, res, next) => {
+userRouter.get("/profile", isLoggedIn, (req, res, next) => {
   const actualUser = req.session.currentUser;
-  console.log("actual user", actualUser);
+
   const props = { actualUser };
 
-  res.render("Profile", props);
+  if (!actualUser) {
+    res.redirect("/login");
+  } else {
+    res.render("Profile", props);
+  }
 });
+
+// GET      /user/editprofile  - Render the edit profile view
+userRouter.get("/editprofile", isLoggedIn, (req, res, next) => {
+  const actualUser = req.session.currentUser;
+  const props = { actualUser };
+  res.render("EditProfile", props);
+});
+
+//POST
+
 
 module.exports = userRouter;

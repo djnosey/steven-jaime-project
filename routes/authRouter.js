@@ -22,7 +22,7 @@ authRouter.post("/signup", (req, res, next) => {
     return;
   }
 
-  if (zxcvbn(password).score < 3) {
+  if (zxcvbn(password).score < 1) {
     const suggestions = zxcvbn(password).feedback.suggestions;
     //console.log('suggestions', suggestions);
     const props = { errorMessage: suggestions[0] };
