@@ -6,7 +6,7 @@ function EditProfile(props) {
     <Layout>
       <h2>Edit Profile</h2>
       <h3>{props.actualUser.username}</h3>
-      <img src="" alt="" />
+      <img src={props.actualUser.image} alt="" />
       <form
         action={`/user/editprofile?userid=${props.actualUser._id}`}
         method="POST"
@@ -18,6 +18,8 @@ function EditProfile(props) {
           placeholder="username"
           defaultValue={props.actualUser.username}
         />
+        <label>Change profile picture</label>
+        <input type="file" name="profilepic" />
         <button type="submit">Save</button>
       </form>
       <form action="user/delete" method="POST">
