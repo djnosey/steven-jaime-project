@@ -8,12 +8,16 @@ const zxcvbn = require("zxcvbn");
 // Helper middleware
 const isLoggedIn = require("./../utils/isLoggedIn");
 const saltRounds = 10;
+const parser = require("./../config/cloudinary");
+
+// SIGNUP ----------
 
 authRouter.get("/signup", (req, res, next) => {
   res.render("Signup");
 });
 
-authRouter.post("/signup", (req, res, next) => {
+authRouter.post("/signup", parser.single("profilepic"), (req, res, next) => {
+  const imageUrl = req.file.secure_url;
   const { username, password } = req.body;
 
   if (username === "" || password === "") {
@@ -43,7 +47,7 @@ authRouter.post("/signup", (req, res, next) => {
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
 
-      User.create({ username, password: hashedPassword })
+      User.create({ username, password: hashedPassword, image: imageUrl })
         .then((createdUser) => {
           req.session.currentUser = createdUser;
           res.redirect("/");
