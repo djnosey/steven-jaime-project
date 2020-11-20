@@ -25,13 +25,14 @@ function Layout(props) {
         <nav id="navbarContainer">
           <i id="hamburgerIcon" class="fas fa-ellipsis-v"></i>
           <div id="searchContainer">
-            <form action="/">
+            <form action="/searchitem" name="searchString" method="GET">
               <input
                 placeholder="search items..."
                 id="searchInput"
                 type="text"
+                name="searchStr"
               />
-              <button name="searchItem" id="searchBarButton"></button>
+              <button type="submit" id="searchBarButton"></button>
             </form>
           </div>
         </nav>
