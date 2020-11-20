@@ -1,12 +1,18 @@
 const React = require("react");
 const Layout = require("./Layout");
 
-function AddProduct() {
+function AddProduct(props) {
+  console.log("props object", props);
   return (
     <Layout>
-      <h2>List your Product</h2>
-      <form encType="multipart/form-data" action="">
+      <h2>great choice {props.username} List your Product</h2>
+      <form
+        encType="multipart/form-data"
+        action={`/product/addproduct/${props._id}`}
+      >
         <input type="text" placeholder="name of item" />
+        <br />
+        <label>add an image of your product</label>
         <input type="file" name="productPic" />
 
         <br />

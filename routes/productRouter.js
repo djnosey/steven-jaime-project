@@ -7,7 +7,17 @@ const User = require("../models/User.model");
 
 productRouter.get("/createproduct", isLoggedIn, (req, res, next) => {
   console.log("add product session", req.session.currentUser);
-  res.render("AddProduct");
+  const props = req.session.currentUser;
+  res.render("AddProduct", props);
 });
+
+productRouter.post(
+  "/createproduct/:",
+  isLoggedIn,
+  parser.single("profilepic"),
+  (req, res, next) => {
+    console.log(req.query);
+  }
+);
 
 module.exports = productRouter;
