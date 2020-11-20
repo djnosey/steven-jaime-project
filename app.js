@@ -57,15 +57,18 @@ app.use("/", siteRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
-  Product.find().then((allproducts) => {
-    const props = { allproducts };
+  Product.find().then((allProducts) => {
+    const props = { allProducts };
     res.render("Home", props);
   });
 });
 
 app.get("/searchitem", (req, res, next) => {
-  console.log("req.query", req.query.searchStr);
-  res.send(req.query);
+  const myQuery = req.query.searchStr;
+  Product.find({ name: myQuery }).then((allProducts) => {
+    const props = { allProducts };
+    res.render("Home", props);
+  });
 });
 
 module.exports = app;

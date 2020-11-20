@@ -2,7 +2,7 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function Home(props) {
-  const products = props.allproducts;
+  const products = props.allProducts;
   return (
     <Layout title="Home Page">
       {products.map((product) => {
