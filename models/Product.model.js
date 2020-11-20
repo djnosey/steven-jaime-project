@@ -9,7 +9,10 @@ const productSchema = new Schema(
     category: { type: String, enum: ["Electronics", "Home", "Hobbies"] },
     description: { type: String },
     image: String,
-    condition: { type: String, enum: ["new"] },
+    condition: {
+      type: String,
+      enum: ["New", "Used", "Nearly new", "Broken/for parts"],
+    },
     seller: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {

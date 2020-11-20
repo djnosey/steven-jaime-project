@@ -12,6 +12,7 @@ const MongoStore = require("connect-mongo")(session);
 const authRouter = require("./routes/authRouter");
 const siteRouter = require("./routes/siteRouter");
 const userRouter = require("./routes/userRouter");
+const productRouter = require("./routes/productRouter");
 
 const Product = require("./models/Product.model");
 const app = express();
@@ -57,6 +58,7 @@ app.use(
 app.use("/auth", authRouter);
 app.use("/", siteRouter);
 app.use("/user", userRouter);
+app.use("/product", productRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
@@ -69,8 +71,15 @@ app.get("/", (req, res, next) => {
 app.get("/searchitem", (req, res, next) => {
   const myQuery = req.query.searchStr;
   Product.find({ name: myQuery }).then((allProducts) => {
-    const props = { allProducts };
-    res.render("Home", props);
+    if (allProducts.length !== 0) {
+      const props = { allProducts, nothingFound :false };
+      res.render("Home", props);
+    } else {
+      Product.find().then((allProducts) => {
+        const props = { allProducts, nothingFound : true };
+        res.render("Home", props);
+      });
+    }
   });
 });
 
