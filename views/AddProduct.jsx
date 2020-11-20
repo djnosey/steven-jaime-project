@@ -19,9 +19,9 @@ function AddProduct(props) {
         <br />
         <label>category</label>
         <select name="category" id="">
-          <option value="">Electronics</option>
-          <option value="">Home</option>
-          <option value="">Hobbies</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Home">Home</option>
+          <option value="Hobbies">Hobbies</option>
         </select>
         <br />
         <textarea
@@ -34,10 +34,10 @@ function AddProduct(props) {
         <br />
         <label>condition of item</label>
         <select name="condition" id="">
-          <option value="">New</option>
-          <option value="">Nearly new</option>
-          <option value="">Used</option>
-          <option value="">Broken/for parts</option>
+          <option value="New">New</option>
+          <option value="Nearly new">Nearly new</option>
+          <option value="Used">Used</option>
+          <option value="Broken/for parts">Broken/for parts</option>
         </select>
         <button type="submit">Trade!!</button>
       </form>

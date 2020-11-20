@@ -67,7 +67,6 @@ authRouter.get("/login", (req, res, next) => {
 // POST     /auth/login
 authRouter.post("/login", (req, res, next) => {
   const { username, password } = req.body;
-  console.log(username, password);
   if (username === "" || password === "") {
     const props = { errorMessage: "Please enter your username and password" };
     res.render("Login", props);

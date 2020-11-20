@@ -17,11 +17,12 @@ productRouter.post(
   parser.single("productPic"),
   (req, res, next) => {
     let image = req.file.secure_url;
-    let userId = req.params.userid;
+    let userId = req.params.userId;
     let name = req.body.name;
     let description = req.body.description;
     let category = req.body.category;
     let condition = req.body.condition;
+    console.log("userID", userId);
 
     Product.create({
       name,
@@ -31,7 +32,7 @@ productRouter.post(
       condition,
       seller: userId,
     }).then((createdProduct) => {
-      res.render("Home");
+      res.render("Profile");
     });
   }
 );
