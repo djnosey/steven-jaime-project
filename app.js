@@ -61,14 +61,14 @@ app.use("/user", userRouter);
 /* GET home page. */
 app.get("/", (req, res, next) => {
   Product.find().then((allproducts) => {
-    console.log(allproducts);
     const props = { allproducts };
     res.render("Home", props);
   });
 });
 
-app.get("/searchItem", (req, res, next) => {
-  const searchItem = req.query;
+app.get("/searchitem", (req, res, next) => {
+  console.log("req.query", req.query.searchStr);
+  res.send(req.query);
 });
 
 module.exports = app;
