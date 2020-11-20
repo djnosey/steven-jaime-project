@@ -22,8 +22,8 @@ productRouter.post(
     let description = req.body.description;
     let category = req.body.category;
     let condition = req.body.condition;
-    console.log("userID", userId);
-
+    let actualUser = req.session.currentUser;
+    const props = { actualUser };
     Product.create({
       name,
       category,
@@ -32,7 +32,7 @@ productRouter.post(
       condition,
       seller: userId,
     }).then((createdProduct) => {
-      res.render("Profile");
+      res.render("Profile", props);
     });
   }
 );

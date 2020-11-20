@@ -1,4 +1,5 @@
 const React = require("react");
+const ProductCard = require("./components/ProductCard");
 const Layout = require("./Layout");
 
 function Home(props) {
@@ -6,20 +7,21 @@ function Home(props) {
   return (
     <Layout title="Home Page">
       {props.nothingFound ? (
-        <div>
+        <div className="nothingFoundContainer">
+          <i id="nothingFoundIcon" class="far fa-meh"></i>
           <h3>sorry no results matched that search</h3>
-          <h4>here's some other awesome stuff</h4>
         </div>
       ) : null}
-      {products.map((product) => {
-        return (
-          <div>
-            <h1>{product.name}</h1>
-            <h3>{product.description}</h3>
-            <img src={product.image} alt="" />
-          </div>
-        );
-      })}
+      <div className="mainHomeContainer">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </div>
     </Layout>
   );
 }
