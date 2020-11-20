@@ -11,7 +11,7 @@ const MongoStore = require("connect-mongo")(session);
 
 const authRouter = require("./routes/authRouter");
 const siteRouter = require("./routes/siteRouter");
-
+const Product = require("./models/Product.model");
 const app = express();
 
 // DB CONNECTION
@@ -57,7 +57,11 @@ app.use("/", siteRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
-  res.render("Home");
+  Product.find().then((allproducts) => {
+    console.log(allproducts);
+    const props = { allproducts };
+    res.render("Home", props);
+  });
 });
 
 module.exports = app;

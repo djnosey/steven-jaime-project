@@ -25,21 +25,13 @@ mongoose
     return pr;
   })
   .then(() => {
-    // CREATE THE USER
-
     const pr = User.create(users);
     return pr;
   })
-  .then((createdUsers) => {
-    console.log(`Created ${createdUsers.length} users`);
-
+  .then(() => {
     const pr = Product.create(products);
     return pr;
   })
-
-  .then((createdProducts) => {
-    console.log(`Created ${createdProducts.length} products`);
-
-    // CLOSE THE DB CONNECTION
+  .then(() => {
     mongoose.connection.close();
   });
