@@ -4,6 +4,8 @@ const Layout = require("./Layout");
 function Signup(props) {
   return (
     <Layout>
+      <h1>Sign up</h1>
+      <h3>Start trading</h3>
       <form action="/auth/signup" method="post">
         <input type="text" name="username" placeholder="username" />
         <br />

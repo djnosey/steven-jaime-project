@@ -136,6 +136,28 @@ table {
 /*GLOBAL STYLES*/
 html {
   font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-size: 8rem;
+  font-weight: 600;
+  margin: 10px;
+  padding: 10px;
+}
+
+h2 {
+  font-size: 6rem;
+  font-weight: 600;
+  margin: 10px;
+  padding: 10px;
+}
+h3 {
+  color: darkslategrey;
+  font-size: 4rem;
+  font-weight: 400;
+  margin: 10px;
+  padding: 10px;
 }
 
 body {
@@ -158,6 +180,7 @@ body {
 }
 
 #hamburgerIcon {
+  color: darkslategrey;
   font-size: 60px;
   margin-left: 40px;
   margin-right: 60px;
@@ -186,12 +209,13 @@ body {
 }
 
 #searchInput::placeholder {
-  color: black;
+  color: darkslategrey;
   font-size: 22px;
 }
 
 #searchBarButton {
   border: none;
+  outline: none;
   border-radius: 0 20px 20px 0;
   background-image: url(https://www.freeiconspng.com/thumbs/magnifying-glass-icon/magnifying-glass-icon-4.png);
   background-repeat: no-repeat;

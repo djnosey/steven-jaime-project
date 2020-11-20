@@ -5,7 +5,7 @@ const Product = require("./../models/Product.model");
 const users = require("./users-mock-data");
 const products = require("./products-mock-data");
 
-const DB_NAME = "tradeApp-seed";
+const DB_NAME = "TradingAppDatabase";
 
 // SEED SEQUENCE:
 
@@ -33,21 +33,10 @@ mongoose
   .then((createdUsers) => {
     console.log(`Created ${createdUsers.length} users`);
 
-    // UPDATE THE BOOKS - SET THE `authors` field and add the id of the author
-    const updatedProducts = products.map((productsObj, i) => {
-      const usersObj = createdUsers[i];
-      productsObj.users = [usersObj._id];
-
-      return productsObj;
-    });
-
-    //console.log("updatedProducts", updatedProducts);
-
-    // CREATE THE BOOKS
-    const pr = Product.create(updatedProducts);
-
+    const pr = Product.create(products);
     return pr;
   })
+
   .then((createdProducts) => {
     console.log(`Created ${createdProducts.length} products`);
 
