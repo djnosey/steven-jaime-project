@@ -11,10 +11,13 @@ function Login(props) {
         <br />
         <button type="submit">Click me</button>
         <div id="errorMessages">{props.errorMessage}</div>
-        <p>
-          Don't have an account?<a href="/auth/signup">Click here</a>
-        </p>
       </form>
+      {props.errorMessage ? (
+        <div className="error-message"> {props.errorMessage}</div>
+      ) : null}
+      <p>
+        Don't have an account?<a href="/auth/signup">Click here</a>
+      </p>
     </Layout>
   );
 }

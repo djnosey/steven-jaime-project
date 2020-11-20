@@ -17,7 +17,9 @@ function Signup(props) {
           placeholder="re-type password"
         />
         <button type="submit">Create an account!</button>
-        <div id="errorMessages">{props.errorMessage}</div>
+        {props.errorMessage ? (
+          <div className="error-message"> {props.errorMessage} </div>
+        ) : null}
       </form>
     </Layout>
   );
