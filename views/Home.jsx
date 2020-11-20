@@ -1,15 +1,19 @@
 const React = require("react");
 const Layout = require("./Layout");
-const Card = require("./components/Card");
 
 function Home(props) {
+  const products = props.allproducts;
   return (
     <Layout title="Home Page">
-      <div>
-        <h1>{props.allproducts[0].name}</h1>
-        <h3>{props.allproducts[0].description}</h3>
-        <img src={props.allproducts[0].image} alt="" />
-      </div>
+      {products.map((product) => {
+        return (
+          <div>
+            <h1>{product.name}</h1>
+            <h3>{product.description}</h3>
+            <img src={product.image} alt="" />
+          </div>
+        );
+      })}
     </Layout>
   );
 }

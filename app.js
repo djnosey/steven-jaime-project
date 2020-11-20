@@ -64,4 +64,8 @@ app.get("/", (req, res, next) => {
   });
 });
 
+app.get("/searchItem", (req, res, next) => {
+  const searchItem = req.query;
+});
+
 module.exports = app;

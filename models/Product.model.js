@@ -6,11 +6,11 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema(
   {
     name: { type: String },
-    category: [{ type: String, enum: ["Electronics", "Home", "Hobbies"] }],
+    category: { type: String, enum: ["Electronics", "Home", "Hobbies"] },
     description: { type: String },
     image: String,
-    condition: { type: Number, enum: ["new", "used"] },
-    seller: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    condition: { type: String, enum: ["new"] },
+    seller: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
     timestamps: {
