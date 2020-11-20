@@ -5,6 +5,12 @@ function Home(props) {
   const products = props.allProducts;
   return (
     <Layout title="Home Page">
+      {props.nothingFound ? (
+        <div>
+          <h3>sorry no results matched that search</h3>
+          <h4>here's some other awesome stuff</h4>
+        </div>
+      ) : null}
       {products.map((product) => {
         return (
           <div>
