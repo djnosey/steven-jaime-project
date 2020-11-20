@@ -7,17 +7,18 @@ function AddProduct(props) {
     <Layout>
       <h2>great choice {props.username} List your Product</h2>
       <form
+        method="POST"
         encType="multipart/form-data"
         action={`/product/addproduct/${props._id}`}
       >
-        <input type="text" placeholder="name of item" />
+        <input name="name" type="text" placeholder="name of item" />
         <br />
         <label>add an image of your product</label>
         <input type="file" name="productPic" />
 
         <br />
         <label>category</label>
-        <select name="" id="">
+        <select name="category" id="">
           <option value="">Electronics</option>
           <option value="">Home</option>
           <option value="">Hobbies</option>
@@ -25,14 +26,14 @@ function AddProduct(props) {
         <br />
         <textarea
           placeholder="description of product"
-          name=""
+          name="description"
           id=""
           cols="30"
           rows="10"
         ></textarea>
         <br />
         <label>condition of item</label>
-        <select name="" id="">
+        <select name="condition" id="">
           <option value="">New</option>
           <option value="">Nearly new</option>
           <option value="">Used</option>
