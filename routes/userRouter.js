@@ -31,7 +31,17 @@ userRouter.get("/editprofile", isLoggedIn, (req, res, next) => {
   res.render("EditProfile", props);
 });
 
-//POST
+// POST      /user/editprofile  - Render the edit profile view
+userRouter.post("/editprofile", isLoggedIn, (req, res, next) => {
+  const { userid } = req.query;
+  const { username, password } = req.body;
 
+  User.findByIdAndUpdate(userid, { username }, { new: true })
+    .then((updateUsername) => {
+      req.session.currentUser = updateUsername;
+      res.redirect("/user/profile");
+    })
+    .catch((err) => console.log(err));
+});
 
 module.exports = userRouter;

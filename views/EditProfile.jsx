@@ -7,20 +7,16 @@ function EditProfile(props) {
       <h2>Edit Profile</h2>
       <h3>{props.actualUser.username}</h3>
       <img src="" alt="" />
-      <form action={`/user/editprofile?userid=${props.actualUser._id}`} method="POST">
+      <form
+        action={`/user/editprofile?userid=${props.actualUser._id}`}
+        method="POST"
+      >
+        <label>Change Username:</label>
         <input
           type="text"
           name="username"
           placeholder="username"
-          defaultValue={props.actualUser.name}
-        />
-        <br />
-        <input type="password" name="password" placeholder=" password" />
-        <br />
-        <input
-          type="password"
-          name="repeatPassword"
-          placeholder="re-type password"
+          defaultValue={props.actualUser.username}
         />
         <button type="submit">Save</button>
       </form>
