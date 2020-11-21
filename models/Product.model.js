@@ -6,7 +6,19 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema(
   {
     name: { type: String },
-    category: { type: String, enum: ["Electronics", "Home", "Hobbies"] },
+    category: {
+      type: String,
+      enum: [
+        "Electronics",
+        "Vehicles",
+        "Baby",
+        "Home",
+        "Games & Hobbies",
+        "Clothing",
+        "Sports",
+        "Outdoor",
+      ],
+    },
     description: { type: String },
     image: String,
     condition: {
