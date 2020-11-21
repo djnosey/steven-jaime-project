@@ -31,14 +31,43 @@ productRouter.post(
       image,
       condition,
       seller: userId,
-    }).then(() => {
-      res.render("Profile", props);
-    });
+    })
+      .then((newProduct) => {
+        newProductId = newProduct._id;
+        User.findByIdAndUpdate(userId, {
+          $push: { products: newProductId },
+        })
+          .then(() => {
+            res.render("Profile", props);
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 );
 
 productRouter.get("/productdetails/:productId", (req, res, next) => {
-  res.render("ProductDetails");
+  const id = req.params.productId;
+  const currentUser = req.session.currentUser;
+  let loggedIn = false;
+  if (req.session.currentUser !== undefined) {
+    loggedIn = true;
+  }
+  Product.findById(id)
+    .populate("seller")
+    .then((product) => {
+      sellersId = product.seller._id;
+      User.findById(sellersId)
+        .populate("products")
+        .then((returnedSeller) => {
+          props = { product, currentUser, loggedIn, returnedSeller };
+          res.render("ProductDetails", props);
+        })
+        .catch((err) => console.log(err));
+    })
+    .catch((err) => console.log(err));
 });
 
 module.exports = productRouter;

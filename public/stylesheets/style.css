@@ -372,3 +372,13 @@ body {
   font-weight: 700;
 }
 /*PRODUT CARDS STYLE ENDS*/
+
+/*PRODUCT DETAILS PAGE BEGINS*/
+
+.productDetailsImage {
+  width: 100%;
+  object-fit: contain;
+  height: 50%;
+}
+
+/*PRODUCT DETAILS PAGE ENDS*/
