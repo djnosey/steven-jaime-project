@@ -25,6 +25,7 @@ function EditProfile(props) {
       <form action="user/delete" method="POST">
         <button type="submit">Delete Profile</button>
       </form>
+      <a href="/user/profile">Back to profile</a>
     </Layout>
   );
 }
