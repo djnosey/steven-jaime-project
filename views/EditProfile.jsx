@@ -23,9 +23,14 @@ function EditProfile(props) {
         <input type="file" name="profilepic" />
         <button type="submit">Save</button>
       </form>
-      <form action="user/delete" method="POST">
+
+      <form
+        action={`/user/delete?userid=${props.actualUser._id}`}
+        method="POST"
+      >
         <button type="submit">Delete Profile</button>
       </form>
+
       <a href="/user/profile">Back to profile</a>
     </Layout>
   );

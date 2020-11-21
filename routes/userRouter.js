@@ -63,4 +63,16 @@ userRouter.post(
   }
 );
 
+// Delete profile
+userRouter.post("/delete", isLoggedIn, (req, res, next) => {
+  const { userid } = req.query;
+
+  User.findByIdAndDelete(userid)
+
+    .then(() => {
+      res.redirect("/auth/signup");
+    })
+    .catch((err) => console.log(err));
+});
+
 module.exports = userRouter;
