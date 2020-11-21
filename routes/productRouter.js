@@ -31,10 +31,14 @@ productRouter.post(
       image,
       condition,
       seller: userId,
-    }).then((createdProduct) => {
+    }).then(() => {
       res.render("Profile", props);
     });
   }
 );
+
+productRouter.get("/productdetails/:productId", (req, res, next) => {
+  res.render("ProductDetails");
+});
 
 module.exports = productRouter;
