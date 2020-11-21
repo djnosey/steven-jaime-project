@@ -20,8 +20,14 @@ function AddProduct(props) {
         <label>category</label>
         <select name="category" id="">
           <option value="Electronics">Electronics</option>
+          <option value="Vehicles">Vehicles</option>
+          <option value="Baby">Baby</option>
           <option value="Home">Home</option>
-          <option value="Hobbies">Hobbies</option>
+          <option value="Games & Hobbies">Games & Hobbies</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Sports">Sports</option>
+          <option value="Outdoor">Outdoor</option>
+          <option value="Christmas">Christmas</option>
         </select>
         <br />
         <textarea

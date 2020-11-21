@@ -17,6 +17,7 @@ const productSchema = new Schema(
         "Clothing",
         "Sports",
         "Outdoor",
+        "Christmas"
       ],
     },
     description: { type: String },

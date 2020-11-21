@@ -1,4 +1,5 @@
 const React = require("react");
+const CategoryBar = require("./components/CategoryBar");
 const ProductCard = require("./components/ProductCard");
 const Layout = require("./Layout");
 
@@ -6,50 +7,14 @@ function Home(props) {
   const products = props.allProducts;
   return (
     <Layout title="Home Page">
+      <CategoryBar />
       {props.nothingFound ? (
         <div className="nothingFoundContainer">
           <i id="nothingFoundIcon" class="far fa-meh"></i>
           <h3>sorry no results matched that search</h3>
         </div>
       ) : null}
-      <div className="categoryContainer">
-        <div className="categorySelection">
-          <i className="fas fa-tshirt categoryIcon"></i>
-          <p className="categoryText">Clothing</p>
-        </div>
-        <div className="categorySelection">
-          <i class="fas fa-desktop categoryIcon"></i>
-          <p className="categoryText">Electronics</p>
-        </div>
-        <div className="categorySelection">
-          <i class="fas fa-home categoryIcon"></i>
-          <p className="categoryText">Home</p>
-        </div>
-        <div className="categorySelection">
-          <i class="fas fa-biking categoryIcon"></i>
-          <p className="categoryText">Sport equipment</p>
-        </div>
-        <div className="categorySelection">
-          <i class="fas fa-baby-carriage categoryIcon"></i>
-          <p className="categoryText">Baby</p>
-        </div>
-        <div className="categorySelection">
-          <i class="fas fa-car categoryIcon"></i>
-          <p className="categoryText">Vehicles</p>
-        </div>
-        <div className="categorySelection">
-          <i class="fas fa-campground categoryIcon"></i>
-          <p className="categoryText">Outdoor</p>
-        </div>
-        <div className="categorySelection">
-          <i class="fas fa-chess categoryIcon"></i>
-          <p className="categoryText">Games & Hobbies</p>
-        </div>
-        <div className="categorySelection">
-          <i class="fas fa-candy-cane categoryIcon highlight"></i>
-          <p className="categoryText">Christmas</p>
-        </div>
-      </div>
+      <h4>Check out some of our awesome products to trade</h4>
       <div className="mainHomeContainer">
         {products.map((product) => {
           return (
@@ -58,6 +23,7 @@ function Home(props) {
               title={product.name}
               condition={product.condition}
               category={product.category}
+              id={product._id}
             />
           );
         })}
