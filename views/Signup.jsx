@@ -18,6 +18,7 @@ function Signup(props) {
         />
         <label>Profile picture</label>
         <input type="file" name="profilepic" />
+
         <button type="submit">Create an account!</button>
         {props.errorMessage ? (
           <div className="error-message"> {props.errorMessage} </div>

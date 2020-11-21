@@ -15,7 +15,6 @@ const parser = require("./../config/cloudinary");
 // GET      /user/profile  - Render the profile view
 userRouter.get("/profile", isLoggedIn, (req, res, next) => {
   const actualUser = req.session.currentUser;
-
   const props = { actualUser };
 
   if (!actualUser) {

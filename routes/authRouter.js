@@ -49,8 +49,10 @@ authRouter.post("/signup", parser.single("profilepic"), (req, res, next) => {
 
       User.create({ username, password: hashedPassword, image: imageUrl })
         .then((createdUser) => {
+          createdUser.password = "******";
           req.session.currentUser = createdUser;
           res.redirect("/");
+          console.log("created user", createdUser);
         })
         .catch((err) => console.log(err));
     })
