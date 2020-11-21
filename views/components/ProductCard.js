@@ -1,21 +1,19 @@
 const React = require("react");
 
 function ProductCard(props) {
+  console.log(props);
   return (
     <div className="contentCardContainer">
       <div className="imageContainer">
-        <img
-          src="https://www.dhresource.com/0x0/f2/albu/g10/M00/39/89/rBVaWVywZEyAAwnmAAHavpE9xMU547.jpg"
-          alt=""
-        />
+        <img src={props.image} alt="" />
       </div>
       <div className="textContainer">
         <div className="textContainerTop">
-          <p className="productCardTitle">rubber duck</p>
+          <p className="productCardTitle">{props.title}</p>
         </div>
         <div className="textContainerBottom">
-          <p className="productCardCondition">nearly new</p>
-          <p className="productCardCategory">electronics</p>
+          <p className="productCardCondition">{props.condition}</p>
+          <p className="productCardCategory">{props.category}</p>
         </div>
       </div>
     </div>

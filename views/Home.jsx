@@ -13,14 +13,16 @@ function Home(props) {
         </div>
       ) : null}
       <div className="mainHomeContainer">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {products.map((product) => {
+          return (
+            <ProductCard
+              image={product.image}
+              title={product.name}
+              condition={product.condition}
+              category={product.category}
+            />
+          );
+        })}
       </div>
     </Layout>
   );
