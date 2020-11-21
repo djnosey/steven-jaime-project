@@ -10,6 +10,7 @@ function EditProfile(props) {
       <form
         action={`/user/editprofile?userid=${props.actualUser._id}`}
         method="POST"
+        encType="multipart/form-data"
       >
         <label>Change Username:</label>
         <input

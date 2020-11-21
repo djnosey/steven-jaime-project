@@ -32,24 +32,35 @@ userRouter.get("/editprofile", isLoggedIn, (req, res, next) => {
   res.render("EditProfile", props);
 });
 
-// POST      /user/editprofile  - Render the edit profile view
-// to change the profile picture, tried to add function after isLoggedIn, image parameter in line 43 and image parameter inside obj of line 46
+// POST      /user/editprofile  - Recieve the edit form information
+
 userRouter.post(
   "/editprofile",
   isLoggedIn,
   parser.single("profilepic"),
   (req, res, next) => {
     const { userid } = req.query;
-    const { username, password, image } = req.body;
-    console.log("profile image", image);
+    const { username, password } = req.body;
+    // Check if new profile picture is selected, if not just change username
+    if (req.file == undefined) {
+      User.findByIdAndUpdate(userid, { username }, { new: true })
+        .then((updateUsername) => {
+          req.session.currentUser = updateUsername;
+          console.log("updated username", updateUsername);
+          res.redirect("/user/profile");
+        })
+        .catch((err) => console.log(err));
+    } else {
+      const image = req.file.secure_url;
 
-    User.findByIdAndUpdate(userid, { username, image }, { new: true })
-      .then((updateUsername) => {
-        req.session.currentUser = updateUsername;
-        console.log("updated username", updateUsername);
-        res.redirect("/user/profile");
-      })
-      .catch((err) => console.log(err));
+      User.findByIdAndUpdate(userid, { username, image }, { new: true })
+        .then((updateUsername) => {
+          req.session.currentUser = updateUsername;
+          console.log("updated username", updateUsername);
+          res.redirect("/user/profile");
+        })
+        .catch((err) => console.log(err));
+    }
   }
 );
 
