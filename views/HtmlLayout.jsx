@@ -1,7 +1,9 @@
 const React = require("react");
+const Layout = require("./Layout");
 const NavBar = require("./components/NavBar");
+const CategoryBar = require("./components/CategoryBar");
 
-function Layout(props) {
+function HtmlLayout(props) {
   return (
     <html lang="en">
       <head>
@@ -25,7 +27,7 @@ function Layout(props) {
       <body>
         <NavBar />
         <div className="barContainer"></div>
-
+        <CategoryBar />
         {props.children}
         <script src="/javascripts/script.js"></script>
       </body>
@@ -33,4 +35,4 @@ function Layout(props) {
   );
 }
 
-module.exports = Layout;
+module.exports = HtmlLayout;

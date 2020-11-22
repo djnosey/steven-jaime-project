@@ -2,16 +2,16 @@ const React = require("react");
 const CategoryBar = require("./components/CategoryBar");
 const ProductCard = require("./components/ProductCard");
 const Layout = require("./Layout");
+const HtmlLayout = require("./HtmlLayout");
 
 function Home(props) {
   const products = props.allProducts;
   return (
-    <Layout title="Home Page">
-      <CategoryBar />
+    <HtmlLayout>
       {props.nothingFound ? (
         <div className="nothingFoundContainer">
-          <i id="nothingFoundIcon" class="far fa-meh"></i>
           <h3>sorry no results matched that search</h3>
+          <i id="nothingFoundIcon" class="far fa-meh"></i>
         </div>
       ) : null}
       <h4>Check out some of our awesome products to trade</h4>
@@ -29,7 +29,7 @@ function Home(props) {
           );
         })}
       </div>
-    </Layout>
+    </HtmlLayout>
   );
 }
 

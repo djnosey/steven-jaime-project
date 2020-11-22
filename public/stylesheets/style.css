@@ -178,7 +178,13 @@ body {
 
 /*NAV BAR BEGINS*/
 
+.menunav {
+  position: fixed;
+  width: 100vw;
+}
+
 #navbarContainer {
+  z-index: 5;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -191,11 +197,21 @@ body {
   box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
 }
 
-#hamburgerIcon {
+#hamburgerIcon.closed {
   color: darkslategrey;
   font-size: 60px;
   margin-left: 40px;
   margin-right: 60px;
+  transition: all 0.5s;
+}
+
+#hamburgerIcon.open {
+  transform: rotate(90deg);
+  color: darkslategrey;
+  font-size: 60px;
+  margin-left: 40px;
+  margin-right: 60px;
+  transition: all 1s;
 }
 
 #searchContainer {
@@ -236,7 +252,65 @@ body {
   height: 62px;
 }
 
+/*  BURGER MENU STYLES START*/
+.menu.open {
+  position: relative;
+  -webkit-box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
+  color: white;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-bottom: 10px;
+  font-size: 50px;
+  height: 700px;
+  width: 60vw !important;
+  margin-top: -20px;
+  overflow: hidden;
+  border-radius: 0 0 20px 0;
+  background: darkslategray;
+  transition: height 1.5s, width 1.5s;
+}
+
+.menuList.open {
+  opacity: 1;
+  transition: opacity 1.5s 1s;
+}
+
+.menuList.closed {
+  opacity: 0;
+}
+
+.menulist {
+  padding: 20px;
+  width: fit-content;
+  word-wrap: none;
+}
+
+.menu li:hover {
+  background-color: white;
+  color: darkslategray;
+}
+
+.lastInList {
+  border-top: 1px solid white;
+  width: 100%;
+}
+
+.menu.closed {
+  height: 0px;
+  width: 0px;
+  transition: height 0.6s, width 0.6s;
+}
+/* BURGER MENU STYLES END*/
+
 /*CATEGORY SELECTION BOX STARTS*/
+
+.barContainer {
+  position: static;
+  height: 130px;
+  width: 100%;
+}
 
 .categoryContainer {
   display: flex;
@@ -297,6 +371,8 @@ body {
 /*PRODUCT CARD STYLES BEGIN*/
 
 .mainHomeContainer {
+  position: relative;
+  z-index: -1;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -308,7 +384,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 45%;
-  max-height: fit-content;
+  height: fit-content;
   -webkit-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
@@ -322,15 +398,15 @@ body {
 }
 
 .imageContainer {
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
-  max-height: 400px;
+  max-height: 500px;
+  margin-bottom: 10px;
 }
 
 .textContainer {
-  margin-top: 40px;
-  padding-top: 30px;
   display: flex;
+  height: fit-content;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
