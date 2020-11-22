@@ -15,19 +15,39 @@ function Home(props) {
         </div>
       ) : null}
       <h4>Check out some of our awesome products to trade</h4>
-      <div className="mainHomeContainer">
-        {products.map((product) => {
-          return (
-            <ProductCard
-              key={product._id}
-              image={product.image}
-              title={product.name}
-              condition={product.condition}
-              category={product.category}
-              id={product._id}
-            />
-          );
-        })}
+      <div className="columnContainer">
+        <div className="mainHomeContainer">
+          {products.map((product, index) => {
+            if (index % 2 == 0) {
+              return (
+                <ProductCard
+                  key={product._id}
+                  image={product.image}
+                  title={product.name}
+                  condition={product.condition}
+                  category={product.category}
+                  id={product._id}
+                />
+              );
+            }
+          })}
+        </div>
+        <div className="mainHomeContainer2">
+          {products.map((product, index) => {
+            if (index % 2 != 0) {
+              return (
+                <ProductCard
+                  key={product._id}
+                  image={product.image}
+                  title={product.name}
+                  condition={product.condition}
+                  category={product.category}
+                  id={product._id}
+                />
+              );
+            }
+          })}
+        </div>
       </div>
     </Layout>
   );

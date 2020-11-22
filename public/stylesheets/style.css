@@ -296,19 +296,24 @@ body {
 
 /*PRODUCT CARD STYLES BEGIN*/
 
-/*
-.mainHomeContainer {
+.columnContainer {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.mainHomeContainer {
   width: 100%;
 }
-*/
+.mainHomeContainer2 {
+  width: 100%;
+}
 .contentCardContainer {
-  margin: 10px 20px;
+  margin: 10px 20px 20px 10px;
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 95%;
   max-height: fit-content;
   -webkit-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
