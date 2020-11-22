@@ -251,7 +251,7 @@ body {
   overflow: auto;
   white-space: nowrap;
 }
-.categorySelection {
+.categorySelection a {
   display: flex;
   flex-direction: column;
   align-items: center;

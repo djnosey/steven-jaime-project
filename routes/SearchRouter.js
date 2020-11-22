@@ -20,4 +20,20 @@ searchRouter.get("/searchitem", (req, res, next) => {
   });
 });
 
+searchRouter.get("/searchcategory", (req, res, next) => {
+  const querycategory = req.query.querycategory;
+  console.log(req.query.querycategory);
+  Product.find({ category: querycategory }).then((allProducts) => {
+    if (allProducts.length !== 0) {
+      const props = { allProducts, nothingFound: false };
+      res.render("Home", props);
+    } else {
+      Product.find().then((allProducts) => {
+        const props = { allProducts, nothingFound: true };
+        res.render("Home", props);
+      });
+    }
+  });
+});
+
 module.exports = searchRouter;
