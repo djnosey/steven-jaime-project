@@ -28,7 +28,6 @@ function ProductDetails(props) {
           );
         })}
       </div>
-      <CategoryBar />
     </Layout>
   );
 }

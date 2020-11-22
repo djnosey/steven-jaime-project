@@ -5,7 +5,6 @@ const CategoryBar = require("./components/CategoryBar");
 
 function Home(props) {
   const products = props.allProducts;
-  console.log(props);
   return (
     <Layout title="Home Page">
       <CategoryBar />
