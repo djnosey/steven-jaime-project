@@ -1,5 +1,4 @@
 const React = require("react");
-const NavBar = require("./components/NavBar");
 
 function Layout(props) {
   return (
@@ -23,9 +22,20 @@ function Layout(props) {
       </head>
 
       <body>
-        <NavBar />
-        <div className="barContainer"></div>
-
+        <nav id="navbarContainer">
+          <i id="hamburgerIcon" className="fas fa-ellipsis-v"></i>
+          <div id="searchContainer">
+            <form action="/search/searchitem" name="searchString" method="GET">
+              <input
+                placeholder="search items..."
+                id="searchInput"
+                type="text"
+                name="searchStr"
+              />
+              <button type="submit" id="searchBarButton"></button>
+            </form>
+          </div>
+        </nav>
         {props.children}
       </body>
     </html>
