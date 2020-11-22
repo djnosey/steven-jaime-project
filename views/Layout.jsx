@@ -10,7 +10,7 @@ function Layout(props) {
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
           integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -23,9 +23,9 @@ function Layout(props) {
 
       <body>
         <nav id="navbarContainer">
-          <i id="hamburgerIcon" class="fas fa-ellipsis-v"></i>
+          <i id="hamburgerIcon" className="fas fa-ellipsis-v"></i>
           <div id="searchContainer">
-            <form action="/searchitem" name="searchString" method="GET">
+            <form action="/search/searchitem" name="searchString" method="GET">
               <input
                 placeholder="search items..."
                 id="searchInput"

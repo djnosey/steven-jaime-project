@@ -1,6 +1,7 @@
 const React = require("react");
 const Layout = require("./Layout");
 const ProductCard = require("./components/ProductCard");
+const CategoryBar = require("./components/CategoryBar");
 
 function ProductDetails(props) {
   return (
@@ -13,18 +14,21 @@ function ProductDetails(props) {
       <h3>{props.product.seller.username}</h3>
       {props.loggedIn ? <p> user is logged in</p> : null}
       <h3>more from this user</h3>
-      {props.returnedSeller.products.map((item, index) => {
-        return (
-          <ProductCard
-            key={index}
-            image={item.image}
-            title={item.name}
-            condition={item.condition}
-            category={item.category}
-            id={item._id}
-          />
-        );
-      })}
+      <div className="productPageCardsContainer">
+        {props.returnedSeller.products.map((item, index) => {
+          return (
+            <ProductCard
+              key={index}
+              image={item.image}
+              title={item.name}
+              condition={item.condition}
+              category={item.category}
+              id={item._id}
+            />
+          );
+        })}
+      </div>
+      <CategoryBar />
     </Layout>
   );
 }

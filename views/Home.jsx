@@ -19,6 +19,7 @@ function Home(props) {
         {products.map((product) => {
           return (
             <ProductCard
+              key={product._id}
               image={product.image}
               title={product.name}
               condition={product.condition}

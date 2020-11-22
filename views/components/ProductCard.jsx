@@ -1,7 +1,6 @@
 const React = require("react");
 
 function ProductCard(props) {
-  console.log(props);
   return (
     <div className="contentCardContainer">
       <a href={`/product/productdetails/${props.id}`}>

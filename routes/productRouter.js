@@ -5,8 +5,9 @@ const parser = require("./../config/cloudinary");
 const Product = require("../models/Product.model");
 const User = require("../models/User.model");
 
+//ROUTES TO ADD A PRODUCT NEW PRODUCT FOR LOGGED IN USERS
+
 productRouter.get("/createproduct", isLoggedIn, (req, res, next) => {
-  console.log("add product session", req.session.currentUser);
   const props = req.session.currentUser;
   res.render("AddProduct", props);
 });
@@ -47,6 +48,8 @@ productRouter.post(
       });
   }
 );
+
+//ROUTE FOR PRODUCT DETAILS PAGE
 
 productRouter.get("/productdetails/:productId", (req, res, next) => {
   const id = req.params.productId;

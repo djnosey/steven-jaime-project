@@ -375,6 +375,10 @@ body {
 
 /*PRODUCT DETAILS PAGE BEGINS*/
 
+.productPageCardsContainer {
+  display: flex;
+}
+
 .productDetailsImage {
   width: 100%;
   object-fit: contain;
