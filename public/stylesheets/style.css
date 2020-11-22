@@ -282,6 +282,7 @@ body {
 }
 
 .menulist {
+  color: white;
   padding: 20px;
   width: fit-content;
   word-wrap: none;
@@ -370,15 +371,15 @@ body {
 
 /*PRODUCT CARD STYLES BEGIN*/
 
+/*
 .mainHomeContainer {
   position: relative;
-  z-index: -1;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
 }
-
+*/
 .contentCardContainer {
   margin: 10px 20px;
   display: flex;

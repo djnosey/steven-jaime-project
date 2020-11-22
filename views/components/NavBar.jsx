@@ -19,11 +19,21 @@ function NavBar() {
       </nav>
       <div className="menu closed">
         <ul className="menuList closed">
-          <li className="menulist">Home</li>
-          <li className="menulist">Your Profile</li>
-          <li className="menulist">List a trade offer</li>
-          <li className="menulist">Sign Up</li>
-          <li className="menulist">Log in</li>
+          <a href="/">
+            <li className="menulist">Home</li>
+          </a>
+          <a href="/user/profile">
+            <li className="menulist">Your Profile</li>
+          </a>
+          <a href="/product/createproduct">
+            <li className="menulist">List a trade offer</li>
+          </a>
+          <a href="/auth/signup">
+            <li className="menulist">Sign Up</li>
+          </a>
+          <a href="/auth/login">
+            <li className="menulist">Log in</li>
+          </a>
           <li className="menulist"></li>
           <li className="menulist"></li>
           <li className="menulist"></li>

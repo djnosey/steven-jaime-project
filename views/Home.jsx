@@ -1,11 +1,11 @@
 const React = require("react");
-const CategoryBar = require("./components/CategoryBar");
 const ProductCard = require("./components/ProductCard");
-const Layout = require("./Layout");
 const HtmlLayout = require("./HtmlLayout");
+const Layout = require("./Layout");
 
 function Home(props) {
   const products = props.allProducts;
+  console.log(props);
   return (
     <HtmlLayout>
       {props.nothingFound ? (
@@ -15,20 +15,18 @@ function Home(props) {
         </div>
       ) : null}
       <h4>Check out some of our awesome products to trade</h4>
-      <div className="mainHomeContainer">
-        {products.map((product) => {
-          return (
-            <ProductCard
-              key={product._id}
-              image={product.image}
-              title={product.name}
-              condition={product.condition}
-              category={product.category}
-              id={product._id}
-            />
-          );
-        })}
-      </div>
+      {products.map((product) => {
+        return (
+          <ProductCard
+            key={product._id}
+            image={product.image}
+            title={product.name}
+            condition={product.condition}
+            category={product.category}
+            id={product._id}
+          />
+        );
+      })}
     </HtmlLayout>
   );
 }

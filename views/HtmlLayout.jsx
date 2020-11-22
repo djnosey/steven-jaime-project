@@ -1,5 +1,4 @@
 const React = require("react");
-const Layout = require("./Layout");
 const NavBar = require("./components/NavBar");
 const CategoryBar = require("./components/CategoryBar");
 

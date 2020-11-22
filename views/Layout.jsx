@@ -27,7 +27,6 @@ function Layout(props) {
         <div className="barContainer"></div>
 
         {props.children}
-        <script src="/javascripts/script.js"></script>
       </body>
     </html>
   );
