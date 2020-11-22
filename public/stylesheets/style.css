@@ -178,7 +178,13 @@ body {
 
 /*NAV BAR BEGINS*/
 
+.spacer {
+  height: 100px;
+}
+
 #navbarContainer {
+  position: fixed;
+  top: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -191,7 +197,17 @@ body {
   box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
 }
 
-#hamburgerIcon {
+#hamburgerIcon.closed {
+  color: darkslategrey;
+  font-size: 60px;
+  margin-left: 40px;
+  margin-right: 60px;
+  transition: all 1s;
+}
+
+#hamburgerIcon.open {
+  transition: all 1s;
+  transform: rotate(90deg);
   color: darkslategrey;
   font-size: 60px;
   margin-left: 40px;
@@ -235,6 +251,53 @@ body {
   width: 60px;
   height: 62px;
 }
+
+/*NAV BAR ENDS*/
+
+/*BURGER MENU STARTS*/
+
+.menu.open {
+  background-color: darkslategray;
+  overflow: hidden;
+  position: fixed;
+  top: 100px;
+  width: 800px;
+  height: 1320px;
+  transition: width 1s, height 1s;
+}
+
+.menu.closed {
+  background-color: darkslategray;
+  overflow: hidden;
+  position: fixed;
+  top: 100px;
+  width: 0px;
+  height: 0px;
+  transition: width 1s, height 1s;
+}
+
+.menuList {
+  white-space: nowrap;
+  margin-top: 20px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lastInList {
+  border-top: 2px solid white;
+  padding-top: 20px;
+  margin-top: 530px;
+}
+
+.menu a {
+  padding-left: 30px;
+  padding: 20px;
+  color: white;
+  font-size: 80px;
+}
+
+/*BURGER MENU ENDS*/
 
 /*CATEGORY SELECTION BOX STARTS*/
 
@@ -330,12 +393,11 @@ body {
 .imageContainer {
   object-fit: cover;
   width: 100%;
-  max-height: 400px;
+  max-height: 500px;
 }
 
 .textContainer {
-  margin-top: 40px;
-  padding-top: 30px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

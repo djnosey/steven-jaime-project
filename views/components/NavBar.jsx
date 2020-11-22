@@ -17,8 +17,8 @@ function NavBar() {
           </form>
         </div>
       </nav>
-      <div className="menu closed">
-        <ul className="menuList closed">
+      <div className="menu closed ">
+        <ul className="menuList ">
           <a href="/">
             <li className="menulist">Home</li>
           </a>
@@ -34,10 +34,10 @@ function NavBar() {
           <a href="/auth/login">
             <li className="menulist">Log in</li>
           </a>
-          <li className="menulist"></li>
-          <li className="menulist"></li>
-          <li className="menulist"></li>
-          <li className=" menulist lastInList">Logout</li>
+
+          <a href="/">
+            <li className=" menulist lastInList">Logout</li>
+          </a>
         </ul>
       </div>
     </div>
