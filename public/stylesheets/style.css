@@ -178,13 +178,13 @@ body {
 
 /*NAV BAR BEGINS*/
 
-.menunav {
-  position: fixed;
-  width: 100vw;
+.spacer {
+  height: 100px;
 }
 
 #navbarContainer {
-  z-index: 5;
+  position: fixed;
+  top: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -202,16 +202,16 @@ body {
   font-size: 60px;
   margin-left: 40px;
   margin-right: 60px;
-  transition: all 0.5s;
+  transition: all 1s;
 }
 
 #hamburgerIcon.open {
+  transition: all 1s;
   transform: rotate(90deg);
   color: darkslategrey;
   font-size: 60px;
   margin-left: 40px;
   margin-right: 60px;
-  transition: all 1s;
 }
 
 #searchContainer {
@@ -252,65 +252,54 @@ body {
   height: 62px;
 }
 
-/*  BURGER MENU STYLES START*/
+/*NAV BAR ENDS*/
+
+/*BURGER MENU STARTS*/
+
 .menu.open {
-  position: relative;
-  -webkit-box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
-  color: white;
-  padding-top: 50px;
-  padding-left: 50px;
-  padding-bottom: 10px;
-  font-size: 50px;
-  height: 700px;
-  width: 60vw !important;
-  margin-top: -20px;
+  background-color: darkslategray;
   overflow: hidden;
-  border-radius: 0 0 20px 0;
-  background: darkslategray;
-  transition: height 1.5s, width 1.5s;
-}
-
-.menuList.open {
-  opacity: 1;
-  transition: opacity 1.5s 1s;
-}
-
-.menuList.closed {
-  opacity: 0;
-}
-
-.menulist {
-  padding: 20px;
-  width: fit-content;
-  word-wrap: none;
-}
-
-.menu li:hover {
-  background-color: white;
-  color: darkslategray;
-}
-
-.lastInList {
-  border-top: 1px solid white;
-  width: 100%;
+  position: fixed;
+  top: 100px;
+  width: 800px;
+  height: 1320px;
+  transition: width 1s, height 1s;
 }
 
 .menu.closed {
-  height: 0px;
+  background-color: darkslategray;
+  overflow: hidden;
+  position: fixed;
+  top: 100px;
   width: 0px;
-  transition: height 0.6s, width 0.6s;
+  height: 0px;
+  transition: width 1s, height 1s;
 }
-/* BURGER MENU STYLES END*/
+
+.menuList {
+  white-space: nowrap;
+  margin-top: 20px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lastInList {
+  border-top: 2px solid white;
+  padding-top: 20px;
+  margin-top: 530px;
+}
+
+.menu a {
+  padding-left: 30px;
+  padding: 20px;
+  color: white;
+  font-size: 80px;
+}
+
+/*BURGER MENU ENDS*/
 
 /*CATEGORY SELECTION BOX STARTS*/
-
-.barContainer {
-  position: static;
-  height: 130px;
-  width: 100%;
-}
 
 .categoryContainer {
   display: flex;
@@ -370,21 +359,25 @@ body {
 
 /*PRODUCT CARD STYLES BEGIN*/
 
-.mainHomeContainer {
-  position: relative;
-  z-index: -1;
+.columnContainer {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   width: 100%;
+  margin: 0 auto;
 }
 
+.mainHomeContainer {
+  width: 100%;
+}
+.mainHomeContainer2 {
+  width: 100%;
+}
 .contentCardContainer {
-  margin: 10px 20px;
+  margin: 10px 20px 20px 10px;
   display: flex;
   flex-direction: column;
-  width: 45%;
-  height: fit-content;
+  width: 95%;
+  max-height: fit-content;
   -webkit-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
@@ -398,15 +391,14 @@ body {
 }
 
 .imageContainer {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
   max-height: 500px;
-  margin-bottom: 10px;
 }
 
 .textContainer {
+  margin-top: 10px;
   display: flex;
-  height: fit-content;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;

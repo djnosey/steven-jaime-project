@@ -1,5 +1,5 @@
 const React = require("react");
-const NavBar = require("./components/NavBar");
+const NavBar = require("./components/navBar");
 
 function Layout(props) {
   return (
@@ -24,8 +24,7 @@ function Layout(props) {
 
       <body>
         <NavBar />
-        <div className="barContainer"></div>
-
+        <div className="spacer"></div>
         {props.children}
         <script src="/javascripts/script.js"></script>
       </body>
