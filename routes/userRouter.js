@@ -16,12 +16,14 @@ const Product = require("../models/Product.model");
 // GET      /user/profile  - Render the profile view
 userRouter.get("/profile", isLoggedIn, (req, res, next) => {
   const actualUser = req.session.currentUser;
-  const props = { actualUser };
-
+  const userId = actualUser._id;
   if (!actualUser) {
     res.redirect("/login");
   } else {
-    res.render("Profile", props);
+    Product.find({ seller: userId }).then((products) => {
+      const props = { actualUser, products };
+      res.render("Profile", props);
+    });
   }
 });
 

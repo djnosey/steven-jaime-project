@@ -525,6 +525,11 @@ body {
 
 /*PROFILE PAGE BEGINS*/
 
+.yourItems {
+  width: 100%;
+  display: flex;
+}
+
 .mainProfileDiv {
   display: flex;
   flex-direction: column;
