@@ -39,7 +39,7 @@ productRouter.post(
           $push: { products: newProductId },
         })
           .then(() => {
-            res.render("Profile", props);
+            res.render("/", props);
           })
           .catch((err) => console.log(err));
       })

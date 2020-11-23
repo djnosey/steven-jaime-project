@@ -4,6 +4,7 @@ const ProductCard = require("./components/ProductCard");
 const CategoryBar = require("./components/CategoryBar");
 
 function ProductDetails(props) {
+  //{props {loggedin:true, product: , currentuser}}
   return (
     <Layout>
       <img className="productDetailsImage" src={props.product.image} alt="" />
@@ -13,6 +14,7 @@ function ProductDetails(props) {
       <h3>seller info</h3>
       <h3>{props.product.seller.username}</h3>
       <div>{props.loggedIn ? <p> user is logged in</p> : null}</div>
+
       <h3>more from this user</h3>
       <div className="productPageCardsContainer">
         {props.returnedSeller.products.map((item, index) => {

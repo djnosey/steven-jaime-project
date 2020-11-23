@@ -21,7 +21,7 @@ function Home(props) {
             if (index % 2 == 0) {
               return (
                 <ProductCard
-                  key={product._id}
+                  key={index}
                   image={product.image}
                   title={product.name}
                   condition={product.condition}
