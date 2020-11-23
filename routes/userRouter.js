@@ -9,6 +9,7 @@ const zxcvbn = require("zxcvbn");
 const isLoggedIn = require("./../utils/isLoggedIn");
 const saltRounds = 10;
 const parser = require("./../config/cloudinary");
+const Product = require("../models/Product.model");
 
 // ROUTES
 
@@ -68,7 +69,10 @@ userRouter.post("/delete", isLoggedIn, (req, res, next) => {
   const { userid } = req.query;
 
   User.findByIdAndDelete(userid)
-
+    .then((deletedUser) => {
+      const deletedId = deletedUser._id;
+      Product.deleteMany({ seller: deletedId });
+    })
     .then(() => {
       res.redirect("/auth/signup");
     })
