@@ -5,9 +5,9 @@ function Login(props) {
   return (
     <Layout>
       <form action="/auth/login" method="POST">
-        <input type="text" name="username" placeholder="username" />
+        <input className="forminput" type="text" name="username" placeholder="username" />
         <br />
-        <input type="password" name="password" placeholder="password" />
+        <input className="forminput" type="password" name="password" placeholder="password" />
         <br />
         <button className="formButton" type="submit">
           Click me

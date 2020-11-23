@@ -13,11 +13,20 @@ function Signup(props) {
           method="POST"
           enctype="multipart/form-data"
         >
-          <input type="text" name="username" placeholder="username" />
-          <br />
-          <input type="password" name="password" placeholder="password" />
-          <br />
           <input
+            className="forminput"
+            type="text"
+            name="username"
+            placeholder="username"
+          />
+          <input
+            className="forminput"
+            type="password"
+            name="password"
+            placeholder="password"
+          />
+          <input
+            className="forminput"
             type="password"
             name="repeatPassword"
             placeholder="re-type password"
@@ -31,7 +40,7 @@ function Signup(props) {
             Create an account!
           </button>
           {props.errorMessage ? (
-            <div className="error-message"> {props.errorMessage} </div>
+            <h4 className="error-message"> {props.errorMessage} </h4>
           ) : null}
         </form>
       </div>

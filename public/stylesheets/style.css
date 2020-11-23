@@ -457,8 +457,7 @@ body {
 
 /*FORM STYLES*/
 
-input[type="text"],
-input[type="password"] {
+.forminput {
   width: 600px;
   height: 80px;
   outline: none;
@@ -468,8 +467,7 @@ input[type="password"] {
   margin: 20px;
 }
 
-input[type="text"],
-input[type="password"]::placeholder {
+.forminput::placeholder {
   font-size: 40px;
   color: darkslategray;
 }
@@ -486,6 +484,8 @@ input[type="password"]::placeholder {
 }
 
 /* FORM STYLES END*/
+
+/*SIGN UP FORM*/
 
 .addFile {
   margin-top: 50px;
@@ -521,3 +521,15 @@ input[type="password"]::placeholder {
   -moz-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
 }
+/*SIGN UP FORM ENDS*/
+
+/*PROFILE PAGE BEGINS*/
+
+.mainProfileDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*PROFILEPAGE ENDS */
