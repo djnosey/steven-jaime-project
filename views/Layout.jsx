@@ -1,5 +1,5 @@
 const React = require("react");
-const NavBar = require("./components/navBar");
+const NavBar = require("./components/NavBar");
 
 function Layout(props) {
   return (
