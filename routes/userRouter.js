@@ -67,16 +67,19 @@ userRouter.post(
 // Delete profile
 userRouter.post("/delete", isLoggedIn, (req, res, next) => {
   const { userid } = req.query;
-
-  User.findByIdAndDelete(userid)
-    .then((deletedUser) => {
-      const deletedId = deletedUser._id;
-      Product.deleteMany({ seller: deletedId });
-    })
-    .then(() => {
-      res.redirect("/auth/signup");
-    })
-    .catch((err) => console.log(err));
+  Product.find({ seller: userid }).then((returnedItems) => {
+    Product.deleteMany({ seller: userid }).then(() => {
+      User.findByIdAndDelete(userid).then(() => {
+        req.session.destroy((err) => {
+          if (err) {
+            res.render("Error");
+          } else {
+            res.redirect("/");
+          }
+        });
+      });
+    });
+  });
 });
 
 module.exports = userRouter;
