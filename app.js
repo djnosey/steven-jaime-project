@@ -13,7 +13,8 @@ const authRouter = require("./routes/authRouter");
 const siteRouter = require("./routes/siteRouter");
 const userRouter = require("./routes/userRouter");
 const productRouter = require("./routes/productRouter");
-const searchRouter = require("./routes/SearchRouter")
+const searchRouter = require("./routes/SearchRouter");
+const transactionRouter = require("./routes/transactionRouter");
 
 const Product = require("./models/Product.model");
 const app = express();
@@ -60,7 +61,8 @@ app.use("/auth", authRouter);
 app.use("/", siteRouter);
 app.use("/user", userRouter);
 app.use("/product", productRouter);
-app.use("/search", searchRouter)
+app.use("/search", searchRouter);
+app.use("/transaction", transactionRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
@@ -69,7 +71,5 @@ app.get("/", (req, res, next) => {
     res.render("Home", props);
   });
 });
-
-
 
 module.exports = app;

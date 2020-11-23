@@ -13,7 +13,11 @@ function ProductDetails(props) {
       <h4>{props.product.description}</h4>
       <h3>seller info</h3>
       <h3>{props.product.seller.username}</h3>
-      <div>{props.loggedIn ? <p> user is logged in</p> : null}</div>
+      <div>
+        {props.loggedIn ? (
+          <a href={`/transaction/TradeView/${props.product._id}`}>Trade</a>
+        ) : null}
+      </div>
 
       <h3>more from this user</h3>
       <div className="productPageCardsContainer">
