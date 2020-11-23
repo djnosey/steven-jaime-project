@@ -10,8 +10,7 @@ function Profile(props) {
         <img src={props.actualUser.image} />
         <button
           className="formButton"
-          onClick="location.href='/user/editprofile'"
-        >
+          onClick="location.href='/user/editprofile'" >
           Edit profile
         </button>
         <a className="formButton" href="/auth/logout">
