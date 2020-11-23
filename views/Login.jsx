@@ -9,7 +9,9 @@ function Login(props) {
         <br />
         <input type="password" name="password" placeholder="password" />
         <br />
-        <button type="submit">Click me</button>
+        <button className="formButton" type="submit">
+          Click me
+        </button>
         <div id="errorMessages">{props.errorMessage}</div>
       </form>
       {props.errorMessage ? (

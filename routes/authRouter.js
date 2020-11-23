@@ -82,6 +82,7 @@ authRouter.post("/login", (req, res, next) => {
   }
 
   User.findOne({ username }).then((user) => {
+    console.log(user);
     if (!user) {
       const props = { errorMessage: "User not found" };
       res.render("Login", props);
