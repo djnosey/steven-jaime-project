@@ -20,8 +20,10 @@ function EditProfile(props) {
           defaultValue={props.actualUser.username}
         />
         <label>Change profile picture</label>
-        <input type="file" name="profilepic" />
-        <button type="submit">Save</button>
+        <input className="formButton" type="file" name="profilepic" />
+        <button className="formButton" type="submit">
+          Save
+        </button>
       </form>
 
       <form

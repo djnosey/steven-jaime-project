@@ -1,14 +1,34 @@
 const React = require("react");
 const Layout = require("./Layout");
+const ProductCard = require("./components/ProductCard");
 
 function Profile(props) {
   return (
     <Layout>
-      <div>
-        <h3>{props.actualUser.username}</h3>
+      <div className="mainProfileDiv">
+        <h1>{props.actualUser.username}</h1>
         <img src={props.actualUser.image} />
-        <a href="/user/editprofile">Edit profile</a>
-        <a href="/auth/logout">Logout</a>
+        <form action="/user/editprofile">
+          <button className="formButton">Edit profile</button>
+        </form>
+        <form action="/auth/logout">
+          <button className="formButton">logout</button>
+        </form>
+        <h3>your currently listed items</h3>
+        <div className="yourItems">
+          {props.products.map((product, index) => {
+            return (
+              <ProductCard
+                key={index}
+                image={product.image}
+                title={product.name}
+                condition={product.condition}
+                category={product.category}
+                id={product._id}
+              />
+            );
+          })}
+        </div>
       </div>
     </Layout>
   );

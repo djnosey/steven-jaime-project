@@ -454,3 +454,87 @@ body {
 }
 
 /*PRODUCT DETAILS PAGE ENDS*/
+
+/*FORM STYLES*/
+
+.forminput {
+  width: 600px;
+  height: 80px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid darkslategray;
+  padding-left: 20px;
+  margin: 20px;
+}
+
+.forminput::placeholder {
+  font-size: 40px;
+  color: darkslategray;
+}
+
+.formButton,
+::-webkit-file-upload-button {
+  width: 200px;
+  height: 100px;
+  border: 2px solid darkslategray;
+  background-color: white;
+  color: darkslategray;
+  border-radius: 28px;
+  font-size: 30px;
+}
+
+/* FORM STYLES END*/
+
+/*SIGN UP FORM*/
+
+.addFile {
+  margin-top: 50px;
+  width: 90%;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.signUpMainDiv {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signUpMainForm {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addProfilePicture {
+  font-size: 30px;
+}
+
+#createAccBtn {
+  margin-top: 70px;
+  -webkit-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
+}
+/*SIGN UP FORM ENDS*/
+
+/*PROFILE PAGE BEGINS*/
+
+.yourItems {
+  width: 100%;
+  display: flex;
+}
+
+.mainProfileDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*PROFILEPAGE ENDS */

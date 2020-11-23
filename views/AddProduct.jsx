@@ -11,11 +11,16 @@ function AddProduct(props) {
         action={`/product/addproduct/${props._id}`}
       >
         <input name="name" type="text" placeholder="name of item" />
-        <br />
-        <label>add an image of your product</label>
-        <input type="file" name="productPic" />
+        <label className="formButton" for="addproductphoto">
+          add an image of your product
+        </label>
+        <input
+          id="addproductphoto"
+          className="formButton"
+          type="file"
+          name="productPic"
+        />
 
-        <br />
         <label>category</label>
         <select name="category" id="">
           <option value="Electronics">Electronics</option>
@@ -28,7 +33,6 @@ function AddProduct(props) {
           <option value="Outdoor">Outdoor</option>
           <option value="Christmas">Christmas</option>
         </select>
-        <br />
         <textarea
           placeholder="description of product"
           name="description"
@@ -36,7 +40,6 @@ function AddProduct(props) {
           cols="30"
           rows="10"
         ></textarea>
-        <br />
         <label>condition of item</label>
         <select name="condition" id="">
           <option value="New">New</option>
@@ -44,7 +47,9 @@ function AddProduct(props) {
           <option value="Used">Used</option>
           <option value="Broken/for parts">Broken/for parts</option>
         </select>
-        <button type="submit">Trade!!</button>
+        <button className="formButton" type="submit">
+          Trade!!
+        </button>
       </form>
     </Layout>
   );

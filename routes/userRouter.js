@@ -16,12 +16,14 @@ const Product = require("../models/Product.model");
 // GET      /user/profile  - Render the profile view
 userRouter.get("/profile", isLoggedIn, (req, res, next) => {
   const actualUser = req.session.currentUser;
-  const props = { actualUser };
-
+  const userId = actualUser._id;
   if (!actualUser) {
     res.redirect("/login");
   } else {
-    res.render("Profile", props);
+    Product.find({ seller: userId }).then((products) => {
+      const props = { actualUser, products };
+      res.render("Profile", props);
+    });
   }
 });
 
@@ -46,7 +48,7 @@ userRouter.post(
       User.findByIdAndUpdate(userid, { username }, { new: true })
         .then((updateUsername) => {
           req.session.currentUser = updateUsername;
-          console.log("updated username", updateUsername);
+          //console.log("updated username", updateUsername);
           res.redirect("/user/profile");
         })
         .catch((err) => console.log(err));
@@ -56,7 +58,7 @@ userRouter.post(
       User.findByIdAndUpdate(userid, { username, image }, { new: true })
         .then((updateUsername) => {
           req.session.currentUser = updateUsername;
-          console.log("updated username", updateUsername);
+          //console.log("updated username", updateUsername);
           res.redirect("/user/profile");
         })
         .catch((err) => console.log(err));
@@ -64,8 +66,16 @@ userRouter.post(
   }
 );
 
-// Delete profile
+// Here it works with GET and POST, done know which is better to use, but it is working
+// POST      /user/delete  - Render the delete confirmation view
 userRouter.post("/delete", isLoggedIn, (req, res, next) => {
+  const actualUser = req.session.currentUser;
+  const props = { actualUser };
+  res.render("DeleteConfirmation", props);
+});
+
+// POST      /user/deleteConfiration  - Delete user
+userRouter.post("/deleteConfirmation", isLoggedIn, (req, res, next) => {
   const { userid } = req.query;
   Product.deleteMany({ seller: userid }).then(() => {
     User.findByIdAndDelete(userid).then(() => {
