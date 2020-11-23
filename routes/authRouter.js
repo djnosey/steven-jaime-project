@@ -17,7 +17,7 @@ authRouter.get("/signup", (req, res, next) => {
 });
 
 authRouter.post("/signup", parser.single("profilepic"), (req, res, next) => {
-  const imageUrl = req.file.secure_url;
+  let profilepic = "";
   const { username, password } = req.body;
 
   if (username === "" || password === "") {
@@ -36,6 +36,12 @@ authRouter.post("/signup", parser.single("profilepic"), (req, res, next) => {
     return;
   }
 
+  if (req.file === undefined) {
+    profilepic = "/images/blank-profile-picture.png";
+  } else {
+    profilepic = req.file.secure_url;
+  }
+
   User.findOne({ username: username })
     .then((user) => {
       if (user) {
@@ -47,7 +53,7 @@ authRouter.post("/signup", parser.single("profilepic"), (req, res, next) => {
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
 
-      User.create({ username, password: hashedPassword, image: imageUrl })
+      User.create({ username, password: hashedPassword, image: profilepic })
         .then((createdUser) => {
           createdUser.password = "******";
           req.session.currentUser = createdUser;
