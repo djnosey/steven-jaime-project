@@ -8,14 +8,12 @@ function Profile(props) {
       <div className="mainProfileDiv">
         <h1>{props.actualUser.username}</h1>
         <img src={props.actualUser.image} />
-        <button
-          className="formButton"
-          onClick="location.href='/user/editprofile'" >
-          Edit profile
-        </button>
-        <a className="formButton" href="/auth/logout">
-          Logout
-        </a>
+        <form action="/user/editprofile">
+          <button className="formButton">Edit profile</button>
+        </form>
+        <form action="/auth/logout">
+          <button className="formButton">logout</button>
+        </form>
         <h3>your currently listed items</h3>
         <div className="yourItems">
           {props.products.map((product, index) => {
