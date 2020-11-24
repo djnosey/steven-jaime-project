@@ -3,11 +3,24 @@ const Layout = require("./Layout");
 const ProductCard = require("./components/ProductCard");
 
 function Profile(props) {
-  console.log(props.myProducts[0].seller.requests);
+  const requests = props.myProducts[0].seller.requests;
+  console.log("kdfuhkfjdhvkjhjvdk", requests[0].productOffer);
+
   return (
     <Layout>
       <div className="mainProfileDiv">
         <h1>{props.actualUser.username}</h1>
+        {requests.length == 0 ? null : (
+          <div>
+            <h3>you have new trade requests</h3>
+            <form
+              action={`/transaction/viewrequests?proposedproduct=${requests[0].productOffer}&yourproduct=${requests[0].productRequested}`}
+              method="POST"
+            >
+              <button>view requests</button>
+            </form>
+          </div>
+        )}
         <img src={props.actualUser.image} />
         <form action="/user/editprofile">
           <button className="formButton">Edit profile</button>

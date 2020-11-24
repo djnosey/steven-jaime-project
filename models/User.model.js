@@ -8,9 +8,11 @@ const userSchema = new Schema(
     password: { type: String },
     image: { type: String },
     transactions: [
-      { productRequested: { type: Schema.Types.ObjectId, ref: "Product" } },
-      { productOffer: { type: Schema.Types.ObjectId, ref: "Product" } },
-      { approved: Boolean },
+      {
+        productRequested: { type: Schema.Types.ObjectId, ref: "Product" },
+        productOffer: { type: Schema.Types.ObjectId, ref: "Product" },
+        approved: Boolean,
+      },
     ],
     products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
     requests: [
