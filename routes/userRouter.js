@@ -80,17 +80,21 @@ userRouter.post("/delete", isLoggedIn, (req, res, next) => {
 // POST      /user/deleteConfiration  - Delete user
 userRouter.post("/deleteConfirmation", isLoggedIn, (req, res, next) => {
   const { userid } = req.query;
-  Product.deleteMany({ seller: userid }).then(() => {
-    User.findByIdAndDelete(userid).then(() => {
-      req.session.destroy((err) => {
-        if (err) {
-          res.render("Error");
-        } else {
-          res.redirect("/");
-        }
-      });
+  Product.deleteMany({ seller: userid })
+    .then(() => {
+      const pr =  User.findByIdAndDelete(userid);
+      return pr;
+    })
+    .then(() => {
+          req.session.destroy((err) => {
+            if (err) {
+              res.render("Error");
+            } else {
+              res.redirect("/");
+              //res.status(200).send
+            }
+          });
     });
-  });
 });
 
 module.exports = userRouter;
