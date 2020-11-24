@@ -96,7 +96,7 @@ transactionRouter.post("/tradeDone", isLoggedIn, (req, res, next) => {
       Product.findById(yourProduct)
         .populate("seller")
         .then((returnedProduct) => {
-          var props = returnedProduct.seller.phone;
+          var props = { returnedProduct };
           const userId = returnedProduct.seller;
           User.findByIdAndUpdate(userId, { $pop: { requests: -1 } }).then(
             () => {
