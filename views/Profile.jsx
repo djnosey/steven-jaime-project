@@ -3,6 +3,7 @@ const Layout = require("./Layout");
 const ProductCard = require("./components/ProductCard");
 
 function Profile(props) {
+  console.log(props.myProducts[0].seller.requests);
   return (
     <Layout>
       <div className="mainProfileDiv">
@@ -16,7 +17,7 @@ function Profile(props) {
         </form>
         <h3>your currently listed items</h3>
         <div className="yourItems">
-          {props.products.map((product, index) => {
+          {props.myProducts.map((product, index) => {
             return (
               <ProductCard
                 key={index}

@@ -35,7 +35,7 @@ transactionRouter.post("/TradeView/:productId", (req, res, next) => {
   const productRequested = req.params.productId;
   const currentUser = req.session.currentUser._id;
   const productOffer = req.body.offeredProduct;
-  const approved = true;
+  const approved = false;
 
   User.findByIdAndUpdate(currentUser, {
     $push: {
