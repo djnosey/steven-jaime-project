@@ -4,17 +4,14 @@ const ProductCard = require("./components/ProductCard");
 
 function ProductDetails(props) {
   let myProduct = false;
-  console.log("CHECKprops.product._id", props.product._id);
 
-  props.currentUser.products.forEach((item) => {
-    console.log(item);
-  });
-
-  props.currentUser.products.forEach((item, index) => {
-    if (item == props.product._id) {
-      myProduct = true;
-    }
-  });
+  if (props.currentUser && props.currentUser.products.length !== 0) {
+    props.currentUser.products.forEach((item, index) => {
+      if (item == props.product._id) {
+        myProduct = true;
+      }
+    });
+  }
 
   console.log("myProduct", myProduct);
   return (
@@ -28,7 +25,9 @@ function ProductDetails(props) {
       <div>
         {props.loggedIn ? (
           <a href={`/transaction/TradeView/${props.product._id}`}>Trade</a>
-        ) : null}
+        ) : (
+          <a href="/auth/login">Trade</a>
+        )}
       </div>
 
       <div>

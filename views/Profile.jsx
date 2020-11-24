@@ -4,7 +4,6 @@ const ProductCard = require("./components/ProductCard");
 
 function Profile(props) {
   const requests = props.myProducts[0].seller.requests;
-  console.log("kdfuhkfjdhvkjhjvdk", requests[0].productOffer);
 
   return (
     <Layout>

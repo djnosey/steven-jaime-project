@@ -64,7 +64,6 @@ transactionRouter.post("/TradeView/:productId", (req, res, next) => {
 });
 
 transactionRouter.post("/viewrequests", (req, res, next) => {
-  console.log(req.query);
   res.send("hello");
 });
 
