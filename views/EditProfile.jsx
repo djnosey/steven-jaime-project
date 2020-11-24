@@ -19,6 +19,13 @@ function EditProfile(props) {
           placeholder="username"
           defaultValue={props.actualUser.username}
         />
+        <label>Change Phone Number:</label>
+        <input
+          type="number"
+          name="phone"
+          placeholder="653 622 489"
+          defaultValue={props.actualUser.phone}
+        />
         <label>Change profile picture</label>
         <input className="formButton" type="file" name="profilepic" />
         <button className="formButton" type="submit">

@@ -6,12 +6,13 @@ const userSchema = new Schema(
   {
     username: { type: String, unique: true },
     password: { type: String },
+    email: { type: String },
+    phone: { type: Number },
     image: { type: String },
     transactions: [
       {
         productRequested: { type: Schema.Types.ObjectId, ref: "Product" },
         productOffer: { type: Schema.Types.ObjectId, ref: "Product" },
-        approved: Boolean,
       },
     ],
     products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
@@ -19,7 +20,6 @@ const userSchema = new Schema(
       {
         productRequested: { type: Schema.Types.ObjectId, ref: "Product" },
         productOffer: { type: Schema.Types.ObjectId, ref: "Product" },
-        approved: { type: Boolean, default: false },
       },
     ],
   },

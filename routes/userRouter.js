@@ -45,10 +45,10 @@ userRouter.post(
   parser.single("profilepic"),
   (req, res, next) => {
     const { userid } = req.query;
-    const { username, password } = req.body;
+    const { username, phone } = req.body;
     // Check if new profile picture is selected, if not just change username
     if (req.file == undefined) {
-      User.findByIdAndUpdate(userid, { username }, { new: true })
+      User.findByIdAndUpdate(userid, { username, phone }, { new: true })
         .then((updateUsername) => {
           req.session.currentUser = updateUsername;
           //console.log("updated username", updateUsername);
@@ -82,18 +82,18 @@ userRouter.post("/deleteConfirmation", isLoggedIn, (req, res, next) => {
   const { userid } = req.query;
   Product.deleteMany({ seller: userid })
     .then(() => {
-      const pr =  User.findByIdAndDelete(userid);
+      const pr = User.findByIdAndDelete(userid);
       return pr;
     })
     .then(() => {
-          req.session.destroy((err) => {
-            if (err) {
-              res.render("Error");
-            } else {
-              res.redirect("/");
-              //res.status(200).send
-            }
-          });
+      req.session.destroy((err) => {
+        if (err) {
+          res.render("Error");
+        } else {
+          res.redirect("/");
+          //res.status(200).send
+        }
+      });
     });
 });
 

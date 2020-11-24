@@ -15,6 +15,8 @@ function Profile(props) {
     <Layout>
       <div className="mainProfileDiv">
         <h1>{props.actualUser.username}</h1>
+        <h3>{props.actualUser.email}</h3>
+        <h3>{props.actualUser.phone}</h3>
         {requests.length == 0 ? null : (
           <div>
             <h3>you have new trade requests</h3>

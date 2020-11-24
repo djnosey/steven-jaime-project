@@ -18,7 +18,7 @@ authRouter.get("/signup", (req, res, next) => {
 
 authRouter.post("/signup", parser.single("profilepic"), (req, res, next) => {
   let profilepic = "";
-  const { username, password } = req.body;
+  const { username, password, email, phone } = req.body;
 
   if (username === "" || password === "") {
     const props = { errorMessage: "Please enter a username and a password" };
@@ -53,7 +53,13 @@ authRouter.post("/signup", parser.single("profilepic"), (req, res, next) => {
       const salt = bcrypt.genSaltSync(saltRounds);
       const hashedPassword = bcrypt.hashSync(password, salt);
 
-      User.create({ username, password: hashedPassword, image: profilepic })
+      User.create({
+        username,
+        password: hashedPassword,
+        email,
+        phone,
+        image: profilepic,
+      })
         .then((createdUser) => {
           createdUser.password = "******";
           req.session.currentUser = createdUser;

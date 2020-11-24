@@ -31,6 +31,18 @@ function Signup(props) {
             name="repeatPassword"
             placeholder="re-type password"
           />
+          <input
+            className="forminput"
+            type="email"
+            name="email"
+            placeholder="email"
+          />
+          <input
+            className="forminput"
+            type="number"
+            name="phone"
+            placeholder="+34 574 375 892"
+          />
           <div className="addFile">
             <label className="addProfilePicture">Add a profile picture</label>
             <input type="file" name="profilepic" />
