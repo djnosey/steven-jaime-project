@@ -14,9 +14,11 @@ const userSchema = new Schema(
     ],
     products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
     requests: [
-      { productRequested: { type: Schema.Types.ObjectId, ref: "Product" } },
-      { productOffer: { type: Schema.Types.ObjectId, ref: "Product" } },
-      { approved: { type: Boolean } },
+      {
+        productRequested: { type: Schema.Types.ObjectId, ref: "Product" },
+        productOffer: { type: Schema.Types.ObjectId, ref: "Product" },
+        approved: { type: Boolean, default: false },
+      },
     ],
   },
   {
