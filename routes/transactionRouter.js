@@ -96,12 +96,12 @@ transactionRouter.post("/tradeDone", isLoggedIn, (req, res, next) => {
       Product.findById(yourProduct)
         .populate("seller")
         .then((returnedProduct) => {
-          console.log("returnedProduct", returnedProduct);
+          var props = returnedProduct.seller.phone;
           const userId = returnedProduct.seller;
           User.findByIdAndUpdate(userId, { $pop: { requests: -1 } }).then(
             () => {
               Product.findByIdAndDelete(yourProduct).then(() => {
-                res.render("TradeDone");
+                res.render("TradeDone", props);
               });
             }
           );
