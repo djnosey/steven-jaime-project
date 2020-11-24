@@ -2,6 +2,7 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function AddProduct(props) {
+  console.log(props);
   return (
     <Layout>
       <h2>great choice {props.username} List your Product</h2>

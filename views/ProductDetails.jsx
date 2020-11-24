@@ -1,10 +1,23 @@
 const React = require("react");
 const Layout = require("./Layout");
 const ProductCard = require("./components/ProductCard");
-const CategoryBar = require("./components/CategoryBar");
 
 function ProductDetails(props) {
-  //{props {loggedin:true, product: , currentuser}}
+  console.log("PAGE PROPS", props);
+  let myProduct = false;
+  console.log("CHECKprops.product._id", props.product._id);
+
+  props.currentUser.products.forEach((item) => {
+    console.log(item);
+  });
+
+  props.currentUser.products.forEach((item, index) => {
+    if (item == props.product._id) {
+      myProduct = true;
+    }
+  });
+
+  console.log("myProduct", myProduct);
   return (
     <Layout>
       <img className="productDetailsImage" src={props.product.image} alt="" />
@@ -16,6 +29,14 @@ function ProductDetails(props) {
       <div>
         {props.loggedIn ? (
           <a href={`/transaction/TradeView/${props.product._id}`}>Trade</a>
+        ) : null}
+      </div>
+
+      <div>
+        {myProduct ? (
+          <form action={`/product/delete/${props.product._id}`} method="POST">
+            <button>delete this item</button>
+          </form>
         ) : null}
       </div>
 
