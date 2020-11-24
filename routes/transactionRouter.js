@@ -64,7 +64,20 @@ transactionRouter.post("/TradeView/:productId", (req, res, next) => {
 });
 
 transactionRouter.post("/viewrequests", (req, res, next) => {
-  res.send("hello");
+  let proposedProduct = req.query.proposedproduct;
+  let yourProduct = req.query.yourproduct;
+  Product.findById(proposedProduct)
+    .populate("seller")
+    .then((returnedProduct) => {
+      proposedProduct = returnedProduct;
+    })
+    .then(() => {
+      Product.findById(yourProduct).then((returnedProduct) => {
+        yourProduct = returnedProduct;
+        const props = { proposedProduct, yourProduct };
+        res.render("TradeProposal", props);
+      });
+    });
 });
 
 module.exports = transactionRouter;
