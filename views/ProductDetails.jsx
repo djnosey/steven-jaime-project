@@ -3,7 +3,6 @@ const Layout = require("./Layout");
 const ProductCard = require("./components/ProductCard");
 
 function ProductDetails(props) {
-  console.log("PAGE PROPS", props);
   let myProduct = false;
   console.log("CHECKprops.product._id", props.product._id);
 
