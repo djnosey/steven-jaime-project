@@ -3,7 +3,13 @@ const Layout = require("./Layout");
 const ProductCard = require("./components/ProductCard");
 
 function Profile(props) {
-  const requests = props.myProducts[0].seller.requests;
+  console.log(props);
+
+  if (props.myProducts.length == 0) {
+    var requests = [];
+  } else {
+    requests = props.myProducts[0].seller.requests;
+  }
 
   return (
     <Layout>

@@ -85,9 +85,10 @@ transactionRouter.post("/viewrequests", isLoggedIn, (req, res, next) => {
 });
 
 //GET TradeDone view
-transactionRouter.get("/tradeDone", isLoggedIn, (req, res, next) => {
+transactionRouter.post("/tradeDone", isLoggedIn, (req, res, next) => {
   let proposedProduct = req.query.proposedproduct;
   let yourProduct = req.query.yourproduct;
+  console.log(req.query);
 
   Product.findByIdAndDelete(proposedProduct)
 
@@ -95,6 +96,7 @@ transactionRouter.get("/tradeDone", isLoggedIn, (req, res, next) => {
       Product.findById(yourProduct)
         .populate("seller")
         .then((returnedProduct) => {
+          console.log("returnedProduct", returnedProduct);
           const userId = returnedProduct.seller;
           User.findByIdAndUpdate(userId, { $pop: { requests: -1 } }).then(
             () => {
