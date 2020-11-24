@@ -72,7 +72,6 @@ productRouter.get("/productdetails/:productId", (req, res, next) => {
             loggedIn,
             returnedSeller,
           };
-          console.log("routerprops", props);
           res.render("ProductDetails", props);
         })
         .catch((err) => console.log(err));

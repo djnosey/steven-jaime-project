@@ -20,10 +20,13 @@ userRouter.get("/profile", isLoggedIn, (req, res, next) => {
   if (!actualUser) {
     res.redirect("/login");
   } else {
-    Product.find({ seller: userId }).then((products) => {
-      const props = { actualUser, products };
-      res.render("Profile", props);
-    });
+    Product.find({ seller: userId })
+      .populate("seller")
+      .then((products) => {
+        const myProducts = products;
+        const props = { actualUser, myProducts };
+        res.render("Profile", props);
+      });
   }
 });
 

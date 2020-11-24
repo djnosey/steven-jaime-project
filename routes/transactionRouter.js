@@ -32,13 +32,39 @@ transactionRouter.get("/TradeView/:productId", (req, res, next) => {
 
 //POST TradeView form
 transactionRouter.post("/TradeView/:productId", (req, res, next) => {
-  const productId = req.params.productId;
+  const productRequested = req.params.productId;
   const currentUser = req.session.currentUser._id;
-  const offeredProduct = req.body.offeredProduct;
+  const productOffer = req.body.offeredProduct;
+  const approved = false;
 
-  console.log("offered product", offeredProduct);
+  User.findByIdAndUpdate(currentUser, {
+    $push: {
+      transactions: {
+        productOffer,
+        productRequested,
+        approved,
+      },
+    },
+  }).then(() => {
+    Product.findById(productRequested).then((returnedProduct) => {
+      const sellerId = returnedProduct.seller;
+      User.findByIdAndUpdate(sellerId, {
+        $push: {
+          requests: {
+            productOffer,
+            productRequested,
+            approved,
+          },
+        },
+      }).then(() => {
+        res.redirect("/");
+      });
+    });
+  });
+});
 
-  res.send("Trade!");
+transactionRouter.post("/viewrequests", (req, res, next) => {
+  res.send("hello");
 });
 
 module.exports = transactionRouter;
