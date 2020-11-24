@@ -6,7 +6,7 @@ const Product = require("../models/Product.model");
 const User = require("../models/User.model");
 
 //GET TradeView
-transactionRouter.get("/TradeView/:productId", (req, res, next) => {
+transactionRouter.get("/TradeView/:productId", isLoggedIn, (req, res, next) => {
   const productId = req.params.productId;
   const currentUser = req.session.currentUser._id;
 
@@ -31,39 +31,43 @@ transactionRouter.get("/TradeView/:productId", (req, res, next) => {
 });
 
 //POST TradeView form
-transactionRouter.post("/TradeView/:productId", (req, res, next) => {
-  const productRequested = req.params.productId;
-  const currentUser = req.session.currentUser._id;
-  const productOffer = req.body.offeredProduct;
-  const approved = false;
+transactionRouter.post(
+  "/TradeView/:productId",
+  isLoggedIn,
+  (req, res, next) => {
+    const productRequested = req.params.productId;
+    const currentUser = req.session.currentUser._id;
+    const productOffer = req.body.offeredProduct;
+    const approved = false;
 
-  User.findByIdAndUpdate(currentUser, {
-    $push: {
-      transactions: {
-        productOffer,
-        productRequested,
-        approved,
-      },
-    },
-  }).then(() => {
-    Product.findById(productRequested).then((returnedProduct) => {
-      const sellerId = returnedProduct.seller;
-      User.findByIdAndUpdate(sellerId, {
-        $push: {
-          requests: {
-            productOffer,
-            productRequested,
-            approved,
-          },
+    User.findByIdAndUpdate(currentUser, {
+      $push: {
+        transactions: {
+          productOffer,
+          productRequested,
+          approved,
         },
-      }).then(() => {
-        res.redirect("/");
+      },
+    }).then(() => {
+      Product.findById(productRequested).then((returnedProduct) => {
+        const sellerId = returnedProduct.seller;
+        User.findByIdAndUpdate(sellerId, {
+          $push: {
+            requests: {
+              productOffer,
+              productRequested,
+              approved,
+            },
+          },
+        }).then(() => {
+          res.redirect("/");
+        });
       });
     });
-  });
-});
+  }
+);
 
-transactionRouter.post("/viewrequests", (req, res, next) => {
+transactionRouter.post("/viewrequests", isLoggedIn, (req, res, next) => {
   let proposedProduct = req.query.proposedproduct;
   let yourProduct = req.query.yourproduct;
   Product.findById(proposedProduct)
@@ -80,4 +84,27 @@ transactionRouter.post("/viewrequests", (req, res, next) => {
     });
 });
 
+//GET TradeDone view
+transactionRouter.get("/tradeDone", isLoggedIn, (req, res, next) => {
+  let proposedProduct = req.query.proposedproduct;
+  let yourProduct = req.query.yourproduct;
+
+  Product.findByIdAndDelete(proposedProduct)
+
+    .then(() => {
+      Product.findById(yourProduct)
+        .populate("seller")
+        .then((returnedProduct) => {
+          const userId = returnedProduct.seller;
+          User.findByIdAndUpdate(userId, { $pop: { requests: -1 } }).then(
+            () => {
+              Product.findByIdAndDelete(yourProduct).then(() => {
+                res.send("Worked?");
+              });
+            }
+          );
+        });
+    })
+    .catch((err) => console.log(err));
+});
 module.exports = transactionRouter;
