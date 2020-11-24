@@ -35,11 +35,12 @@ productRouter.post(
     })
       .then((newProduct) => {
         newProductId = newProduct._id;
+        req.session.currentUser.products.push(newProductId);
         User.findByIdAndUpdate(userId, {
           $push: { products: newProductId },
         })
           .then(() => {
-            res.render("Profile", props);
+            res.redirect("/");
           })
           .catch((err) => console.log(err));
       })
@@ -65,12 +66,34 @@ productRouter.get("/productdetails/:productId", (req, res, next) => {
       User.findById(sellersId)
         .populate("products")
         .then((returnedSeller) => {
-          props = { product, currentUser, loggedIn, returnedSeller };
+          const props = {
+            product,
+            currentUser,
+            loggedIn,
+            returnedSeller,
+          };
+          console.log("routerprops", props);
           res.render("ProductDetails", props);
         })
         .catch((err) => console.log(err));
     })
     .catch((err) => console.log(err));
+});
+
+productRouter.post("/delete/:productId", (req, res, next) => {
+  productId = req.params.productId;
+  Product.findByIdAndDelete(productId).then(() => {
+    const actualUser = req.session.currentUser;
+    const userId = actualUser._id;
+    if (!actualUser) {
+      res.redirect("/login");
+    } else {
+      Product.find({ seller: userId }).then((products) => {
+        const props = { actualUser, products };
+        res.render("Profile", props);
+      });
+    }
+  });
 });
 
 module.exports = productRouter;
