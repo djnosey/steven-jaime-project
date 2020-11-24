@@ -101,7 +101,7 @@ transactionRouter.post("/tradeDone", isLoggedIn, (req, res, next) => {
           User.findByIdAndUpdate(userId, { $pop: { requests: -1 } }).then(
             () => {
               Product.findByIdAndDelete(yourProduct).then(() => {
-                res.send("Worked?");
+                res.render("TradeDone");
               });
             }
           );

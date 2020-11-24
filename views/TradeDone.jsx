@@ -5,6 +5,7 @@ function TradeDone(props) {
   return (
     <Layout>
       <h3>Congratulations for your trade!</h3>
+      <a href="/">GO HOME!!!</a>
     </Layout>
   );
 }
