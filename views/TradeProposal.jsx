@@ -33,7 +33,7 @@ function TradeProposal(props) {
         <button className="formButton">yes</button>
       </form>
       <form
-        ction={`/transaction/tradeDone?proposedproduct=${props.proposedProduct._id}&yourproduct=${props.yourProduct._id}`}
+        action={`/transaction/tradeRejected?proposedproduct=${props.proposedProduct._id}&yourproduct=${props.yourProduct._id}`}
         method="POST"
       >
         <button className="formButton">no</button>
