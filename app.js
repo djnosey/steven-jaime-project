@@ -15,6 +15,7 @@ const userRouter = require("./routes/userRouter");
 const productRouter = require("./routes/productRouter");
 const searchRouter = require("./routes/SearchRouter");
 const transactionRouter = require("./routes/transactionRouter");
+const chatRouter = require("./routes/chatRouter");
 
 const Product = require("./models/Product.model");
 const app = express();
@@ -63,6 +64,7 @@ app.use("/user", userRouter);
 app.use("/product", productRouter);
 app.use("/search", searchRouter);
 app.use("/transaction", transactionRouter);
+app.use("/chat", chatRouter);
 
 /* GET home page. */
 app.get("/", (req, res, next) => {
