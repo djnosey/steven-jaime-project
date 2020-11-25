@@ -106,6 +106,7 @@ authRouter.post("/login", (req, res, next) => {
   });
 });
 
+// Logout
 authRouter.get("/logout", isLoggedIn, (req, res, next) => {
   req.session.destroy((err) => {
     if (err) {
