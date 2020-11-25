@@ -17,11 +17,12 @@ function ProductDetails(props) {
   return (
     <Layout>
       <img className="productDetailsImage" src={props.product.image} alt="" />
-      <h1>{props.product.name}</h1>
-      <h3>More information</h3>
-      <h4>{props.product.description}</h4>
-      <h3>seller info</h3>
-      <h3>{props.product.seller.username}</h3>
+      <h2>{props.product.name}</h2>
+      {/* <h3>Description</h3> */}
+      <p>{props.product.description}</p>
+      <h3>Seller's information</h3>
+      <h4>{props.product.seller.username}</h4>
+      <img src={props.product.seller.image} />
       <div>
         {!myProduct ? (
           <a href={`/transaction/TradeView/${props.product._id}`}>Trade</a>
@@ -31,12 +32,12 @@ function ProductDetails(props) {
       <div>
         {myProduct ? (
           <form action={`/product/delete/${props.product._id}`} method="POST">
-            <button>delete this item</button>
+            <button>Delete this item</button>
           </form>
         ) : null}
       </div>
 
-      <h3>more from this user</h3>
+      <h3>More products from this user</h3>
       <div className="productPageCardsContainer">
         {props.returnedSeller.products.map((item, index) => {
           return (

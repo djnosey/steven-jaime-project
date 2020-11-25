@@ -4,10 +4,11 @@ const Layout = require("./Layout");
 function DeleteProfile(props) {
   return (
     <Layout>
-      <h3>
-        Are you sure you want to delete your profile {props.actualUser.username}
-        ?
-      </h3>
+      <h3>Delete Account</h3>
+      <p>
+        Are you sure you want to delete your account {props.actualUser.username}
+        ? This will permanently erase your profile and all your products.
+      </p>
       <form
         action={`/user/deleteConfirmation?userid=${props.actualUser._id}`}
         method="POST"

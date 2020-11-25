@@ -16,15 +16,15 @@ function Profile(props) {
       <div className="mainProfileDiv">
         <h1>{props.actualUser.username}</h1>
         <h3>{props.actualUser.email}</h3>
-        <h3>{props.actualUser.phone}</h3>
+        <h3>Phone: {props.actualUser.phone}</h3>
         {requests.length == 0 ? null : (
           <div>
-            <h3>you have new trade requests</h3>
+            <h3>You have new trade request!</h3>
             <form
               action={`/transaction/viewrequests?proposedproduct=${requests[0].productOffer}&yourproduct=${requests[0].productRequested}`}
               method="POST"
             >
-              <button>view requests</button>
+              <button>View request</button>
             </form>
           </div>
         )}
@@ -33,9 +33,9 @@ function Profile(props) {
           <button className="formButton">Edit profile</button>
         </form>
         <form action="/auth/logout">
-          <button className="formButton">logout</button>
+          <button className="formButton">Logout</button>
         </form>
-        <h3>your currently listed items</h3>
+        <h3>Your currently listed items</h3>
         <div className="yourItems">
           {!props.myProducts
             ? null

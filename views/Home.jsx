@@ -11,10 +11,10 @@ function Home(props) {
       {props.nothingFound ? (
         <div className="nothingFoundContainer">
           <i id="nothingFoundIcon" class="far fa-meh"></i>
-          <h3>sorry no results matched that search</h3>
+          <h3>Sorry! No results matched that search</h3>
         </div>
       ) : null}
-      <h4>Check out some of our awesome products to trade</h4>
+      <h4>Check out some of our awesome products to trade!</h4>
       <div className="columnContainer">
         <div className="mainHomeContainer">
           {products.map((product, index) => {
