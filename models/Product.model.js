@@ -13,11 +13,11 @@ const productSchema = new Schema(
         "Vehicles",
         "Baby",
         "Home",
-        "Games & Hobbies",
+        "Hobbies",
         "Clothing",
         "Sports",
         "Outdoor",
-        "Christmas"
+        "Christmas",
       ],
     },
     description: { type: String },

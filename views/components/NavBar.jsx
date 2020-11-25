@@ -35,7 +35,7 @@ function NavBar() {
             <li className="menulist">Log in</li>
           </a>
 
-          <a href="/">
+          <a href="/auth/logout">
             <li className=" menulist lastInList">Logout</li>
           </a>
         </ul>

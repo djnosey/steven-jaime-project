@@ -84,11 +84,26 @@ transactionRouter.post("/viewrequests", isLoggedIn, (req, res, next) => {
     });
 });
 
-//GET TradeDone view
+// Trade rejected
+transactionRouter.post("/tradeRejected", isLoggedIn, (req, res, next) => {
+  let proposedProduct = req.query.proposedproduct;
+  let yourProduct = req.query.yourproduct;
+
+  Product.findById(yourProduct)
+    .populate("seller")
+    .then((returnedProduct) => {
+      const user = returnedProduct.seller._id;
+      User.findByIdAndUpdate(user, { $pop: { requests: -1 } }).then(() => {
+        res.redirect("/user/profile");
+      });
+    });
+});
+
+// To TradeDone view
 transactionRouter.post("/tradeDone", isLoggedIn, (req, res, next) => {
   let proposedProduct = req.query.proposedproduct;
   let yourProduct = req.query.yourproduct;
-  console.log(req.query);
+  //console.log(req.query);
 
   Product.findByIdAndDelete(proposedProduct)
     .populate("seller")
