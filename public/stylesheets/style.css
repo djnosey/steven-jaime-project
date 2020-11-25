@@ -145,31 +145,30 @@ html {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 600;
   margin: 10px;
   padding: 10px;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600;
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
 }
 h3 {
   color: darkslategrey;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 400;
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
 }
 
 h4 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
 }
 
 body {
@@ -201,7 +200,7 @@ body {
   color: darkslategrey;
   font-size: 30px;
   margin-left: 20px;
-  margin-right: 40px;
+  margin-right: 30px;
   transition: all 1s;
 }
 
@@ -211,13 +210,13 @@ body {
   color: darkslategrey;
   font-size: 30px;
   margin-left: 20px;
-  margin-right: 40px;
+  margin-right: 30px;
 }
 
 #searchContainer {
   width: 75%;
   justify-self: flex-end;
-  margin-right: 20px;
+  margin-right: 30px;
 }
 
 #searchContainer > form {
@@ -229,12 +228,12 @@ body {
 #searchInput {
   outline: none;
   padding-left: 30px;
-  font-size: 22px;
+  font-size: 16px;
   border: none;
   background-color: lightgray;
   border-radius: 20px 0 0 20px;
-  height: 30px;
-  width: 80%;
+  height: 25px;
+  width: 75%;
 }
 
 #searchInput::placeholder {
@@ -250,7 +249,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   width: 30px;
-  height: 32px;
+  height: 27px;
 }
 
 /*NAV BAR ENDS*/
@@ -307,8 +306,8 @@ body {
   margin: 0 auto;
   width: 90%;
   border: 1px solid lightgray;
-  border-radius: 30px;
-  padding: 10px;
+  border-radius: 10px;
+  padding: 7px;
   -webkit-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
@@ -322,9 +321,9 @@ body {
 }
 
 .categoryIcon {
-  font-size: 40px;
+  font-size: 30px;
   color: darkslategray;
-  margin: 10px 15px;
+  margin: 5px 15px;
 }
 
 .categoryText {
@@ -345,8 +344,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -471,7 +470,7 @@ body {
   outline: none;
   border: none;
   border-bottom: 2px solid darkslategray;
-  padding-left: 20px;
+  padding-left: 10px;
   margin: 20px;
 }
 
@@ -480,7 +479,27 @@ body {
   color: darkslategray;
 }
 
+#addproductphoto {
+  text-align: center;
+  padding-left: 50%;
+  margin-bottom: 10px;
+}
+label {
+  margin: 10px 5px 0px 5px;
+  color: darkslategray;
+}
+
+select {
+  width: 60%;
+  margin: 10px;
+}
+
 .formButton {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: fit-content;
   height: 25px;
   border: 2px solid darkslategray;
@@ -558,3 +577,64 @@ body {
 }
 
 /*PROFILEPAGE ENDS */
+
+.badactionbutton {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 25px;
+  border: 2px solid darkred;
+  background-color: white;
+  color: darkred;
+  border-radius: 28px;
+  font-size: 15px;
+}
+
+.goodactionbutton {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 25px;
+  border: 2px solid darkslategray;
+  background-color: white;
+  color: darkslategray;
+  border-radius: 28px;
+  font-size: 15px;
+  -webkit-box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
+}
+
+.sellersinfodiv {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.sellerimg {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.sellersotheritems {
+  max-width: 120px;
+}
+
+.sellersotheritems img {
+  max-height: 70px;
+}
+
+.productPageCardsContainer {
+  display: flex;
+  flex: auto;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+}

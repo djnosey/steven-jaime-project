@@ -20,35 +20,44 @@ function ProductDetails(props) {
       <h2>{props.product.name}</h2>
       {/* <h3>Description</h3> */}
       <p>{props.product.description}</p>
-      <h3>Seller's information</h3>
-      <h4>{props.product.seller.username}</h4>
-      <img src={props.product.seller.image} />
       <div>
-        {!myProduct ? (
-          <a href={`/transaction/TradeView/${props.product._id}`}>Trade</a>
-        ) : null}
+        <form action="`/transaction/TradeView/${props.product._id}`">
+          {!myProduct ? (
+            <button className="goodactionbutton" type="submit">
+              Trade this item
+            </button>
+          ) : null}
+        </form>
       </div>
 
       <div>
         {myProduct ? (
           <form action={`/product/delete/${props.product._id}`} method="POST">
-            <button>Delete this item</button>
+            <button className="badactionbutton">Delete this item</button>
           </form>
         ) : null}
       </div>
+      <h3>Seller's information</h3>
+      <div className="sellersinfodiv">
+        <img className="sellerimg" src={props.product.seller.image} />
+        <h4>{props.product.seller.username}</h4>
+      </div>
 
-      <h3>More products from this user</h3>
+      <h3>More products from {props.product.seller.username}</h3>
       <div className="productPageCardsContainer">
         {props.returnedSeller.products.map((item, index) => {
           return (
-            <ProductCard
-              key={index}
-              image={item.image}
-              title={item.name}
-              condition={item.condition}
-              category={item.category}
-              id={item._id}
-            />
+            <div className="sellersotheritems">
+
+              <ProductCard
+                key={index}
+                image={item.image}
+                title={item.name}
+                condition={item.condition}
+                category={item.category}
+                id={item._id}
+              />
+            </div>
           );
         })}
       </div>
