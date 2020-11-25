@@ -26,7 +26,7 @@ function NavBar() {
             <li className="menulist">Your Profile</li>
           </a>
           <a href="/product/createproduct">
-            <li className="menulist">List a trade offer</li>
+            <li className="menulist">Upload product</li>
           </a>
           <a href="/auth/signup">
             <li className="menulist">Sign Up</li>

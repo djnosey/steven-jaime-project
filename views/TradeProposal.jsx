@@ -6,8 +6,11 @@ function TradeProposal(props) {
   console.log(props);
   return (
     <Layout>
-      <h3>{props.proposedProduct.seller.username}</h3>
-      <h4>wants to trade</h4>
+      <h3>Trade offer</h3>
+      <h4>
+        The user {props.proposedProduct.seller.username} wants to trade with you
+        his product:
+      </h4>
       <ProductCard
         key={props.proposedProduct._id}
         image={props.proposedProduct.image}
@@ -25,6 +28,7 @@ function TradeProposal(props) {
         category={props.yourProduct.category}
         id={props.yourProduct._id}
       />
+      <h4>Do you accept the trade?</h4>
 
       <form
         action={`/transaction/tradeDone?proposedproduct=${props.proposedProduct._id}&yourproduct=${props.yourProduct._id}`}

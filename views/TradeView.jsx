@@ -14,7 +14,7 @@ function TradeView(props) {
         condition={props.currentProduct.condition}
         category={props.currentProduct.category}
       />
-      <h3>Choose your product to trade</h3>
+      <h4>Choose your product to trade</h4>
       <form
         action={`/transaction/TradeView/${props.currentProduct._id}`}
         method="POST"
@@ -27,7 +27,7 @@ function TradeView(props) {
             return <option value={item._id}>{item.name}</option>;
           })}
         </select>
-        <button type="submit">Offer</button>
+        <button type="submit">Send offer</button>
       </form>
     </Layout>
   );

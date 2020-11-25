@@ -5,7 +5,7 @@ function AddProduct(props) {
   console.log(props);
   return (
     <Layout>
-      <h2>Great choice {props.username} List your Product</h2>
+      <h2> Upload a product to trade {props.username}</h2>
       <form
         method="POST"
         encType="multipart/form-data"
@@ -13,7 +13,7 @@ function AddProduct(props) {
       >
         <input name="name" type="text" placeholder="name of item" required />
         <label className="formButton" for="addproductphoto">
-          Add an image of your product
+          Upload product image
         </label>
         <input
           id="addproductphoto"

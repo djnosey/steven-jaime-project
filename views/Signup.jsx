@@ -17,31 +17,31 @@ function Signup(props) {
             className="forminput"
             type="text"
             name="username"
-            placeholder="username"
+            placeholder="Username"
           />
           <input
             className="forminput"
             type="password"
             name="password"
-            placeholder="password"
+            placeholder="Password"
           />
           <input
             className="forminput"
             type="password"
             name="repeatPassword"
-            placeholder="re-type password"
+            placeholder="Confirm password"
           />
           <input
             className="forminput"
             type="email"
             name="email"
-            placeholder="email"
+            placeholder="Email"
           />
           <input
             className="forminput"
             type="number"
             name="phone"
-            placeholder="+34 574 375 892"
+            placeholder="Phone"
           />
           <div className="addFile">
             <label className="addProfilePicture">Add a profile picture</label>

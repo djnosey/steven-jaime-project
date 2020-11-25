@@ -12,14 +12,14 @@ function EditProfile(props) {
         method="POST"
         encType="multipart/form-data"
       >
-        <label>Change Username:</label>
+        <label>Change username:</label>
         <input
           type="text"
           name="username"
           placeholder="username"
           defaultValue={props.actualUser.username}
         />
-        <label>Change Phone Number:</label>
+        <label>Change phone number:</label>
         <input
           type="number"
           name="phone"
@@ -37,10 +37,10 @@ function EditProfile(props) {
         action={`/user/delete?userid=${props.actualUser._id}`}
         method="POST"
       >
-        <button type="submit">Delete Profile</button>
+        <button type="submit">Delete Account</button>
       </form>
 
-      <a href="/user/profile">Back to profile</a>
+      <a href="/user/profile">Back to your profile</a>
     </Layout>
   );
 }
