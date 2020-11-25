@@ -166,7 +166,7 @@ h3 {
 }
 
 h4 {
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin: 10px;
   padding: 10px;
@@ -179,7 +179,7 @@ body {
 /*NAV BAR BEGINS*/
 
 .spacer {
-  height: 120px;
+  height: 90px;
 }
 
 #navbarContainer {
@@ -189,7 +189,7 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100px;
+  height: 70px;
   background-color: white;
   margin-bottom: 20px;
   -webkit-box-shadow: 0px 7px 46px -26px rgba(0, 0, 0, 0.75);
@@ -199,9 +199,9 @@ body {
 
 #hamburgerIcon.closed {
   color: darkslategrey;
-  font-size: 60px;
-  margin-left: 40px;
-  margin-right: 60px;
+  font-size: 40px;
+  margin-left: 20px;
+  margin-right: 40px;
   transition: all 1s;
 }
 
@@ -209,14 +209,15 @@ body {
   transition: all 1s;
   transform: rotate(90deg);
   color: darkslategrey;
-  font-size: 60px;
-  margin-left: 40px;
-  margin-right: 60px;
+  font-size: 40px;
+  margin-left: 20px;
+  margin-right: 40px;
 }
 
 #searchContainer {
   width: 85%;
   justify-self: flex-end;
+  margin-right: 20px;
 }
 
 #searchContainer > form {
@@ -232,7 +233,7 @@ body {
   border: none;
   background-color: lightgray;
   border-radius: 20px 0 0 20px;
-  height: 60px;
+  height: 40px;
   width: 80%;
 }
 
@@ -249,7 +250,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   width: 60px;
-  height: 62px;
+  height: 42px;
 }
 
 /*NAV BAR ENDS*/
@@ -307,7 +308,7 @@ body {
   width: 90%;
   border: 1px solid lightgray;
   border-radius: 30px;
-  padding: 20px;
+  padding: 10px;
   -webkit-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
@@ -321,15 +322,15 @@ body {
 }
 
 .categoryIcon {
-  font-size: 100px;
+  font-size: 40px;
   color: darkslategray;
-  margin: 10px 30px;
+  margin: 10px 15px;
 }
 
 .categoryText {
-  font-size: 20px;
+  font-size: 12px;
   font-weight: 700;
-  margin: 10px 30px;
+  margin: 0px 7px 5px 7px;
 }
 
 /*CATEGORY SELECTION BOX ENDS*/
