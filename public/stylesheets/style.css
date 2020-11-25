@@ -145,21 +145,21 @@ html {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 600;
   margin: 10px;
   padding: 10px;
 }
 
 h2 {
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: 600;
   margin: 10px;
   padding: 10px;
 }
 h3 {
   color: darkslategrey;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 400;
   margin: 10px;
   padding: 10px;
@@ -466,8 +466,8 @@ body {
 /*FORM STYLES*/
 
 .forminput {
-  width: 600px;
-  height: 80px;
+  width: 70%;
+  height: 30px;
   outline: none;
   border: none;
   border-bottom: 2px solid darkslategray;
@@ -476,19 +476,22 @@ body {
 }
 
 .forminput::placeholder {
-  font-size: 40px;
+  font-size: 20px;
   color: darkslategray;
 }
 
-.formButton,
-::-webkit-file-upload-button {
-  width: 200px;
-  height: 100px;
+.formButton {
+  width: fit-content;
+  height: 25px;
   border: 2px solid darkslategray;
   background-color: white;
   color: darkslategray;
   border-radius: 28px;
-  font-size: 30px;
+  font-size: 15px;
+}
+
+::-webkit-file-upload-button {
+  display: none;
 }
 
 /* FORM STYLES END*/
@@ -496,11 +499,7 @@ body {
 /*SIGN UP FORM*/
 
 .addFile {
-  margin-top: 50px;
-  width: 90%;
-  justify-content: space-between;
-  display: flex;
-  align-items: center;
+  display: none;
 }
 
 .signUpMainDiv {
@@ -530,6 +529,19 @@ body {
   box-shadow: 0px 0px 24px -15px rgba(0, 0, 0, 0.75);
 }
 /*SIGN UP FORM ENDS*/
+
+/*ADD A PRODUCT FORM*/
+.mainProductFormPage {
+  display: flex;
+  flex-direction: column;
+}
+.mainProductForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*ADD A PRODUCT FORM ENDS*/
 
 /*PROFILE PAGE BEGINS*/
 
