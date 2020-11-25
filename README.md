@@ -6,43 +6,68 @@ Who hasn't accumulate things that you don't use anymore? Wouldn't it be great th
 
 ## User Stories
 
-- **404** - As users, we want to be politely warned that this page does not exist and it was our fault to search for it. ⚠️
-- **500** - As users, we want to be politely warned that the amazing team behind the project screwd it up and it's not our fault.
 - **Homepage** - As a user I want to be able to browse products people are willing to trade and find options to sign up or login, also browse products sorted by category. As an authorized user I want to be able to favorite products from the homepage.
-- **Product View** - As a user I want to be able to view more details about the product. And as an authorized user, favorite it or make an offer to trade it.
-- **Private-Profile View** - As an authorised user I want to be able to see my favorited items and delete them, and see the items I have currently listed to trade and delete them. Also I want to see offers from other users to trade their products.
-- **Edit Private-Profile View** - As a user I want to be able to edit my profile.
-- **Public-Profile View** - As a user I want to be able to see details about the user and the products they are offering to trade.
-- **Create Product View** - as a user I want to be able to upload my items to trade.
-- **Sign up View** - As a user I want to be able to create a user profile,
+- **Product View** - As a user I want to be able to view more details about the product. And as an authorized user, make an offer to trade it and if it is my product, be able to delete it.
+- **Private-Profile View** - As an authorised user I want to be able to see my items I have currently listed to trade. Also I want to see offers from other users to trade their products and edit my profile.
+- **Edit Private-Profile View** - As a user I want to be able to edit my profile name, image and phone number.
+- **Create Product View** - As a user I want to be able to upload my items to trade.
+- **Trade View** - As a user I want to be able to choose what product to trade, select my own product to offer as a trade and know if the trade was successful.
+- **Sign up View** - As a user I want to be able to create a user profile.
 - **Log In View** - As a user I want to be able to login to my account, and be redirected to home view to look for some products.
-- Success view -
 
 ## Routes
 
-| **Method** | **Route**                    | **Description**                     | **Request - Body**                          |
-| ---------- | ---------------------------- | ----------------------------------- | ------------------------------------------- |
-| `GET`      | `/`                          | Home page view                      | {req.body - name, image, \_id, seller \_id} |
-| `PUT`      | `/user/:currentuser`         | Select favorite items               | {productId} backlog                         |
-| `GET`      | `product/:productId`         | Product Detail View                 |                                             |
-| `GET`      | `/user/userid/`              | See someone else profile view       |                                             |
-| `PUT`      | `/user/currentuser`          | Favoriting products                 | {add product currentUser favorites array}   |
-| `PUT`      | `/user/sellersId`            | For proposing trade                 | {product id, sellers id, buyer id}          |
-| `GET`      | `/user/currentuser`          | Display users page view (protected) |                                             |
-| `POST`     | `/product/:productId/delete` | Delete product button (protected)   |                                             |
-|            |                              |                                     |                                             |
-| `GET`      | `/auth/logout`               | Log out from your session           | {req.session.destroy} => res.redirect("/")  |
-| `GET`      | `/user/editprofile`          | Edit user profile view              |                                             |
-| `POST`     | `/user/editprofile`          | Edit user profile details           |                                             |
-| `POST`     | `/user/editeprofile/delete`  | Delete profile                      |                                             |
-|            |                              |                                     |                                             |
-| `GET`      | `/product/addproduct`        | Create product view (protected)     |                                             |
-| `POST`     | `/product`                   | Create new product                  |                                             |
-| `GET`      | `/auth/signup`               | Sign up view                        |                                             |
-| `POST`     | `auth/signup`                | Send sign up form                   |                                             |
-| `GET`      | `/auth/login`                | Login up view                       |                                             |
-| `POST`     | `auth/login`                 | Send login form                     |                                             |
-| `GET`      | `/success`                   | Success trade view                  |                                             |
+### Home Routes
+
+| **Method** | **Route** | **Description** |
+| ---------- | --------- | --------------- |
+| `GET`      | `/`       | Home page view  |
+
+### Auth Routes
+
+| **Method** | **Route** | **Description**                |
+| ---------- | --------- | ------------------------------ |
+| `GET`      | `/signup` | Signup view                    |
+| `POST`     | `/signup` | Recieve sign form information  |
+| `GET`      | `/login`  | Login view                     |
+| `POST`     | `/login`  | Recieve login form information |
+| `GET`      | `/logout` | Logout user's session          |
+
+### Product Routes
+
+| **Method** | **Route**                    | **Description**                                   |
+| ---------- | ---------------------------- | ------------------------------------------------- |
+| `GET`      | `/createproduct`             | Create new product view                           |
+| `POST`     | `/addproduct/:userId`        | Recieve information for adding a new product form |
+| `GET`      | `/productdetails/:productId` | Product details view                              |
+| `POST`     | `/delete/:productId`         | Delete product                                    |
+
+### Search Routes
+
+| **Method** | **Route**         | **Description**                           |
+| ---------- | ----------------- | ----------------------------------------- |
+| `GET`      | `/searchitem`     | Search bar renders the resulting products |
+| `GET`      | `/searchcategory` | Category bar resulting products           |
+
+### Transactions Routes
+
+| **Method** | **Route**               | **Description**                                          |
+| ---------- | ----------------------- | -------------------------------------------------------- |
+| `GET`      | `/tradeView/:productId` | Choose your product to trade view                        |
+| `POST`     | `/tradeView/:productId` | Recieve the information form the trade view              |
+| `POST`     | `/viewrequests`         | View where you can see your trade offer requests         |
+| `POST`     | `/tradeRejected`        | Reject the offer                                         |
+| `POST`     | `/tradeDone`            | Trade successful view with ther user contact information |
+
+### User Routes
+
+| **Method** | **Route**             | **Description**                                    |
+| ---------- | --------------------- | -------------------------------------------------- |
+| `GET`      | `/profile`            | User's profile view                                |
+| `GET`      | `/editprofile`        | User's edit profile view                           |
+| `POST`     | `/editprofile`        | Revieve the information form the edit profile form |
+| `POST`     | `/delete`             | Render delete confirmation profile view            |
+| `POST`     | `/deleteConfirmation` | Delete profile confirmation                        |
 
 ## Models
 
@@ -52,17 +77,22 @@ Who hasn't accumulate things that you don't use anymore? Wouldn't it be great th
 {
     username: { type: String, unique: true },
     password: { type: String },
+    email: {type: String},
+    phone: {type: Number},
     image: { type: String },
     transactions: [
-      { productRequested: { type: Schema.Types.ObjectId, ref: "Product" } },
-      { productOffer: { type: Schema.Types.ObjectId, ref: "Product" } },
-      { approved: Boolean },
+      {
+        productRequested: { type: Schema.Types.ObjectId, ref: "Product" },
+        productOffer: { type: Schema.Types.ObjectId, ref: "Product" },
+        approved: Boolean
+      }
     ],
     products: [{ type: Schema.Types.ObjectId, ref: "Product" }],
     requests: [
-      { productRequested: { type: Schema.Types.ObjectId, ref: "Product" } },
-      { productOffer: { type: Schema.Types.ObjectId, ref: "Product" } },
-      { approved: { type: Boolean } },
+      {
+        productRequested: { type: Schema.Types.ObjectId, ref: "Product" },
+        productOffer: { type: Schema.Types.ObjectId, ref: "Product" }
+      }
     ],
 }
 ```
@@ -70,14 +100,37 @@ Who hasn't accumulate things that you don't use anymore? Wouldn't it be great th
 ### Product Model
 
 ```
-{
+  {
     name: { type: String },
-    category: { type: String },
+    category: {
+      type: String,
+      enum: [
+        "Electronics",
+        "Vehicles",
+        "Baby",
+        "Home",
+        "Hobbies",
+        "Clothing",
+        "Sports",
+        "Outdoor",
+        "Christmas",
+      ],
+    },
     description: { type: String },
     image: String,
-    condition: { type: Number },
-    seller: [{ type: Schema.Types.ObjectId, ref: "User" }],
-}
+    condition: {
+      type: String,
+      enum: ["New", "Used", "Nearly new", "Broken/for parts"],
+    },
+    seller: { type: Schema.Types.ObjectId, ref: "User" },
+  },
+  {
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at",
+    },
+  }
+);
 ```
 
 ## Backlogs
@@ -89,17 +142,19 @@ Who hasn't accumulate things that you don't use anymore? Wouldn't it be great th
 - Have a chat platform to communicate with other traders
 - Location services to see which products are close to me
 - Select personal interest in my profile to be matched with items that I may like
-- User can select favorite items adn review other users
-- Add location
+- User can select favorite items and review other users
 - Implement a value category to products
+- Change user's password in edit profile
+- Repeat password validation
+- Popup message when deleting a profile
 
 ## Links
 
 #### Git
 
-​ [Repository Link]()
+​ [Repository Link](https://github.com/djnosey/steven-jaime-project)
 
-​ [Deploy Link]()
+​ [Deploy Link](https://trade-up-app.herokuapp.com)
 
 #### Trello
 
