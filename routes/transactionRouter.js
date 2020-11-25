@@ -91,12 +91,13 @@ transactionRouter.post("/tradeDone", isLoggedIn, (req, res, next) => {
   console.log(req.query);
 
   Product.findByIdAndDelete(proposedProduct)
+    .populate("seller")
+    .then((deletedItem) => {
+      var props = { deletedItem };
 
-    .then(() => {
       Product.findById(yourProduct)
         .populate("seller")
         .then((returnedProduct) => {
-          var props = { returnedProduct };
           const userId = returnedProduct.seller;
           User.findByIdAndUpdate(userId, { $pop: { requests: -1 } }).then(
             () => {
