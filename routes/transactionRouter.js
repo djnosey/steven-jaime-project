@@ -66,7 +66,7 @@ transactionRouter.post(
     });
   }
 );
-
+// View requests
 transactionRouter.post("/viewrequests", isLoggedIn, (req, res, next) => {
   let proposedProduct = req.query.proposedproduct;
   let yourProduct = req.query.yourproduct;
