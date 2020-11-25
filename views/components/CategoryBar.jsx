@@ -46,9 +46,9 @@ function CategoryBar() {
         </a>
       </div>
       <div className="categorySelection">
-        <a href="/search/searchcategory?querycategory=Games & Hobbies">
+        <a href="/search/searchcategory?querycategory=Hobbies">
           <i className="fas fa-chess categoryIcon"></i>
-          <p className="categoryText">Games & Hobbies</p>
+          <p className="categoryText">Hobbies</p>
         </a>
       </div>
       <div className="categorySelection">

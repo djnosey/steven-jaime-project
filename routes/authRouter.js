@@ -7,12 +7,13 @@ const zxcvbn = require("zxcvbn");
 
 // Helper middleware
 const isLoggedIn = require("./../utils/isLoggedIn");
+const isNotLoggedIn = require("./../utils/isNotLoggedIn");
 const saltRounds = 10;
 const parser = require("./../config/cloudinary");
 
 // SIGNUP ----------
 
-authRouter.get("/signup", (req, res, next) => {
+authRouter.get("/signup", isNotLoggedIn, (req, res, next) => {
   res.render("Signup");
 });
 

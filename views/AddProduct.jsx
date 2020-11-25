@@ -5,30 +5,31 @@ function AddProduct(props) {
   console.log(props);
   return (
     <Layout>
-      <h2>great choice {props.username} List your Product</h2>
+      <h2>Great choice {props.username} List your Product</h2>
       <form
         method="POST"
         encType="multipart/form-data"
         action={`/product/addproduct/${props._id}`}
       >
-        <input name="name" type="text" placeholder="name of item" />
+        <input name="name" type="text" placeholder="name of item" required />
         <label className="formButton" for="addproductphoto">
-          add an image of your product
+          Add an image of your product
         </label>
         <input
           id="addproductphoto"
           className="formButton"
           type="file"
           name="productPic"
+          required
         />
 
-        <label>category</label>
+        <label>Category</label>
         <select name="category" id="">
           <option value="Electronics">Electronics</option>
           <option value="Vehicles">Vehicles</option>
           <option value="Baby">Baby</option>
           <option value="Home">Home</option>
-          <option value="Games & Hobbies">Games & Hobbies</option>
+          <option value="Hobbies">Hobbies</option>
           <option value="Clothing">Clothing</option>
           <option value="Sports">Sports</option>
           <option value="Outdoor">Outdoor</option>
@@ -40,8 +41,9 @@ function AddProduct(props) {
           id=""
           cols="30"
           rows="10"
+          required
         ></textarea>
-        <label>condition of item</label>
+        <label>Item condition</label>
         <select name="condition" id="">
           <option value="New">New</option>
           <option value="Nearly new">Nearly new</option>
@@ -49,7 +51,7 @@ function AddProduct(props) {
           <option value="Broken/for parts">Broken/for parts</option>
         </select>
         <button className="formButton" type="submit">
-          Trade!!
+          Upload
         </button>
       </form>
     </Layout>

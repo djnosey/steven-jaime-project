@@ -1,6 +1,7 @@
 const express = require("express");
 const productRouter = express.Router();
 const isLoggedIn = require("./../utils/isLoggedIn");
+const toUpperCase = require("./../utils/toUpperCase");
 const parser = require("./../config/cloudinary");
 const Product = require("../models/Product.model");
 const User = require("../models/User.model");
@@ -25,8 +26,11 @@ productRouter.post(
     let condition = req.body.condition;
     let actualUser = req.session.currentUser;
     const props = { actualUser };
+
+    const uppercasedName = toUpperCase(name);
+
     Product.create({
-      name,
+      name: uppercasedName,
       category,
       description,
       image,
@@ -79,6 +83,8 @@ productRouter.get("/productdetails/:productId", (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
+//ROUTE FOR DELETE PRODUCT
+
 productRouter.post("/delete/:productId", (req, res, next) => {
   productId = req.params.productId;
   Product.findByIdAndDelete(productId).then(() => {
@@ -89,7 +95,7 @@ productRouter.post("/delete/:productId", (req, res, next) => {
     } else {
       Product.find({ seller: userId }).then((products) => {
         const props = { actualUser, products };
-        res.render("Profile", props);
+        res.redirect("/user/profile");
       });
     }
   });

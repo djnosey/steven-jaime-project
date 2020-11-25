@@ -23,11 +23,9 @@ function ProductDetails(props) {
       <h3>seller info</h3>
       <h3>{props.product.seller.username}</h3>
       <div>
-        {props.loggedIn ? (
+        {!myProduct ? (
           <a href={`/transaction/TradeView/${props.product._id}`}>Trade</a>
-        ) : (
-          <a href="/auth/login">Trade</a>
-        )}
+        ) : null}
       </div>
 
       <div>
