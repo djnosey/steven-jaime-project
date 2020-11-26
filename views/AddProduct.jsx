@@ -6,8 +6,9 @@ function AddProduct(props) {
   return (
     <Layout>
       <div className="mainProductFormPage">
-        <h2> Upload a product to trade {props.username}</h2>
-        <form className = "mainProductForm"
+        <h2> Upload a product to trade</h2>
+        <form
+          className="mainProductForm"
           method="POST"
           encType="multipart/form-data"
           action={`/product/addproduct/${props._id}`}
@@ -19,10 +20,17 @@ function AddProduct(props) {
             placeholder="name of item"
             required
           />
-          <label className="formButton" for="addproductphoto">
-            Upload product image
-          </label>
-          <input id="addproductphoto" type="file" name="productPic" required />
+          <div className="upload-product-image-div">
+            <label id="upload-product-button" for="addproductphoto">
+              Upload product image
+            </label>
+            <input
+              id="addproductphoto"
+              type="file"
+              name="productPic"
+              required
+            />
+          </div>
 
           <label>Category</label>
           <select name="category" id="">

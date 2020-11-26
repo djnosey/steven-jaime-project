@@ -483,8 +483,8 @@ body {
 
 #addproductphoto {
   text-align: center;
-  padding-left: 50%;
   margin-bottom: 10px;
+  padding-left: 60%;
 }
 label {
   margin: 10px 5px 0px 5px;
@@ -557,9 +557,30 @@ select {
   flex-direction: column;
 }
 .mainProductForm {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+
+#upload-product-button {
+  height: 25px;
+}
+
+.mainProductFormPage > h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.upload-product-image-div {
+  width: 73%;
+  margin: 20px 0 15px 0;
+  border-bottom: 2px solid darkslategray;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 /*ADD A PRODUCT FORM ENDS*/
@@ -571,15 +592,20 @@ select {
   flex-direction: column;
   width: 100%;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .profile-info {
-  width: 100%;
+  width: 82%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.profile-info > img {
+  width: 100px;
+  height: 100px;
 }
 
 .profile-info-detail {
@@ -604,9 +630,10 @@ select {
 }
 
 .profile-alert-container {
+  width: 75%;
   border: 2px solid darkred;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
