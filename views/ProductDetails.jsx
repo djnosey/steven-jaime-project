@@ -5,6 +5,8 @@ const ProductCard = require("./components/ProductCard");
 function ProductDetails(props) {
   let myProduct = false;
 
+  let numberofItems = props.product.seller.products.length;
+
   if (props.currentUser && props.currentUser.products.length !== 0) {
     props.currentUser.products.forEach((item, index) => {
       if (item == props.product._id) {
@@ -18,9 +20,9 @@ function ProductDetails(props) {
     <Layout>
       <img className="productDetailsImage" src={props.product.image} alt="" />
       <h2>{props.product.name}</h2>
-      {/* <h3>Description</h3> */}
-      <p>{props.product.description}</p>
-      <div>
+
+      <p id="product-details-p">{props.product.description}</p>
+      <div id="product-details-button">
         <form action={`/transaction/TradeView/${props.product._id}`}>
           {!myProduct ? (
             <button className="goodactionbutton" type="submit">
@@ -28,17 +30,16 @@ function ProductDetails(props) {
             </button>
           ) : null}
         </form>
+        <div>
+          {myProduct ? (
+            <form action={`/product/delete/${props.product._id}`} method="POST">
+              <button className="badactionbutton">Delete this item</button>
+            </form>
+          ) : null}
+        </div>
       </div>
-
-      <div>
-        {myProduct ? (
-          <form action={`/product/delete/${props.product._id}`} method="POST">
-            <button className="badactionbutton">Delete this item</button>
-          </form>
-        ) : null}
-      </div>
-      <h3>Seller's information</h3>
       <div className="sellersinfodiv">
+        <h3>Seller's information</h3>
         <img className="sellerimg" src={props.product.seller.image} />
         <h4>{props.product.seller.username}</h4>
       </div>
