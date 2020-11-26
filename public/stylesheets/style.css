@@ -891,3 +891,28 @@ select {
 }
 
 /* TRADE PROPOSAL */
+
+.trade-proposal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.trade-proposal-container h4 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.trade-proposal-card {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.trade-proposal-buttons {
+  display: flex;
+  margin-top: -10px;
+  margin-bottom: 50px;
+}
