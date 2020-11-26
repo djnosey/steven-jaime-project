@@ -39,7 +39,7 @@ function ProductDetails(props) {
         </div>
       </div>
       <div className="sellersinfodiv">
-        <h3>Seller's information</h3>
+        <h3>Owner's information</h3>
         <img className="sellerimg" src={props.product.seller.image} />
         <h4>{props.product.seller.username}</h4>
       </div>
