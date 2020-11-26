@@ -21,7 +21,7 @@ function ProductDetails(props) {
       {/* <h3>Description</h3> */}
       <p>{props.product.description}</p>
       <div>
-        <form action="`/transaction/TradeView/${props.product._id}`">
+        <form action={`/transaction/TradeView/${props.product._id}`}>
           {!myProduct ? (
             <button className="goodactionbutton" type="submit">
               Trade this item
@@ -48,7 +48,6 @@ function ProductDetails(props) {
         {props.returnedSeller.products.map((item, index) => {
           return (
             <div className="sellersotheritems">
-
               <ProductCard
                 key={index}
                 image={item.image}
