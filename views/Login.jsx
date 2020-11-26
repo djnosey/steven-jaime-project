@@ -27,7 +27,10 @@ function Login(props) {
           <div className="error-message"> {props.errorMessage}</div>
         ) : null}
         <p>
-          Don't have an account? <a href="/auth/signup">Click here</a>
+          Don't have an account?{" "}
+          <a className="underline-link" href="/auth/signup">
+            Click here
+          </a>
         </p>
       </div>
     </Layout>

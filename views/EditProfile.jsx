@@ -53,7 +53,7 @@ function EditProfile(props) {
             </button>
           </form>
 
-          <a href="/user/profile">Back to your profile</a>
+          <a className="underline-link" href="/user/profile">Back to your profile</a>
         </div>
       </div>
     </Layout>

@@ -176,6 +176,11 @@ body {
   width: 100vw;
 }
 
+.underline-link {
+  text-decoration: underline;
+  color: darkslategray;
+}
+
 /*NAV BAR BEGINS*/
 
 .spacer {
@@ -461,6 +466,7 @@ body {
 #product-details-button {
   display: flex;
   justify-content: center;
+  margin: 30px 0;
 }
 
 .productPageCardsContainer {
@@ -712,11 +718,15 @@ select {
   width: 90%;
   justify-content: space-between;
   align-items: center;
-  margin: 20px auto 20px auto;
+  margin: 20px auto 40px auto;
 }
 
 .sellersinfodiv h4 {
   font-size: 2rem;
+}
+
+.more-products-from {
+  margin-bottom: 20px;
 }
 
 .sellerimg {
@@ -766,11 +776,6 @@ select {
 .error-message {
   margin-bottom: 10px;
   text-align: center;
-}
-
-.login-container a {
-  text-decoration: underline;
-  color: darkslategray;
 }
 
 /*EDIT PROFILE PAGE*/
@@ -829,7 +834,60 @@ select {
   padding-bottom: 10px;
 }
 
-.edit-profile-buttons a {
-  text-decoration: underline;
-  color: darkslategray;
+/* DELETE CONFIRMATION VIEW */
+
+.delete-account-container {
+  margin: 20% auto;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 2rem;
 }
+
+.delete-account-container h2 {
+  margin-bottom: 40px;
+}
+
+.delete-account-container h3 {
+  margin-bottom: 50px;
+}
+
+.delete-account-buttons {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: -5px;
+}
+
+/* TRADEVIEW */
+
+.trade-view-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#trade-view-h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.single-card {
+  margin-top: 20px;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+
+.trade-view-form {
+  width: 100%;
+  display: flex;
+}
+
+/* TRADE PROPOSAL */

@@ -44,7 +44,9 @@ function ProductDetails(props) {
         <h4>{props.product.seller.username}</h4>
       </div>
 
-      <h3>More products from {props.product.seller.username}</h3>
+      <h3 className="more-products-from">
+        More products from {props.product.seller.username}
+      </h3>
       <div className="productPageCardsContainer">
         {props.returnedSeller.products.map((item, index) => {
           return (
