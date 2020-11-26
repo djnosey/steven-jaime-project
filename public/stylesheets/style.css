@@ -567,6 +567,9 @@ select {
 .mainProductFormPage {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
 }
 .mainProductForm {
   width: 100%;
@@ -766,6 +769,67 @@ select {
 }
 
 .login-container a {
+  text-decoration: underline;
+  color: darkslategray;
+}
+
+/*EDIT PROFILE PAGE*/
+
+.edit-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.edit-image-name {
+  margin: 15px 0 20px 0;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.edit-image-name h3 {
+  font-size: 2rem;
+}
+
+#edit-info-form {
+  margin-top: 10px 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#edit-info-form label {
+  margin-bottom: 10px;
+}
+
+.change-pic-div {
+  width: 73%;
+  text-align: center;
+  margin: 20px 0;
+  border-bottom: 2px solid darkslategray;
+}
+
+.change-pic-div label {
+  font-size: 1.5rem;
+}
+
+.change-pic-div input {
+  width: 50%;
+  margin-left: 15%;
+  padding: 10px 0;
+}
+
+.edit-profile-buttons {
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.edit-profile-buttons a {
   text-decoration: underline;
   color: darkslategray;
 }
