@@ -14,27 +14,38 @@ function Profile(props) {
   return (
     <Layout>
       <div className="mainProfileDiv">
-        <h1>{props.actualUser.username}</h1>
-        <h3>{props.actualUser.email}</h3>
-        <h3>Phone: {props.actualUser.phone}</h3>
+        <section className="profile-info-container">
+          <div className="profile-info">
+            <img className="sellerimg" src={props.actualUser.image} />
+            <div className="profile-info-detail">
+              <h2>{props.actualUser.username}</h2>
+              <p>{props.actualUser.email}</p>
+              <p>Phone: {props.actualUser.phone}</p>
+            </div>
+          </div>
+          <div className="profile-buttons">
+            <form action="/user/editprofile">
+              <button className="formButton">Edit profile</button>
+            </form>
+            <form action="/auth/logout">
+              <button id="logout-button" className="formButton">
+                Logout
+              </button>
+            </form>
+          </div>
+        </section>
+
         {requests.length == 0 ? null : (
-          <div>
-            <h3>You have new trade request!</h3>
+          <div className="profile-alert-container">
+            <h4>You have new trade request!</h4>
             <form
               action={`/transaction/viewrequests?proposedproduct=${requests[0].productOffer}&yourproduct=${requests[0].productRequested}`}
               method="POST"
             >
-              <button>View request</button>
+              <button className="formButton">View request</button>
             </form>
           </div>
         )}
-        <img src={props.actualUser.image} />
-        <form action="/user/editprofile">
-          <button className="formButton">Edit profile</button>
-        </form>
-        <form action="/auth/logout">
-          <button className="formButton">Logout</button>
-        </form>
         <h3>Your currently listed items</h3>
         <div className="yourItems">
           {!props.myProducts
