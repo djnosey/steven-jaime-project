@@ -2,16 +2,20 @@ const React = require("react");
 const Layout = require("./Layout");
 
 function TradeDone(props) {
-  console.log("PROPS STUFF", props);
   return (
     <Layout>
-      <h3>Congratulations for your trade!</h3>
-      <p>
-        You can contact {props.deletedItem.seller.username} on his phone{" "}
-        {props.deletedItem.seller.phone} or email{" "}
-        {props.deletedItem.seller.email}.
-      </p>
-      <a href="/">Go back to Home</a>
+      <div className="delete-account-container">
+        <h3>Congratulations for your trade!</h3>
+        <p>
+          You can contact <strong>{props.deletedItem.seller.username}</strong>{" "}
+          on his phone <strong>{props.deletedItem.seller.phone}</strong> or
+          email <strong>{props.deletedItem.seller.email}</strong>.
+        </p>
+
+        <a className="underline-link" href="/">
+          Go back to Home
+        </a>
+      </div>
     </Layout>
   );
 }

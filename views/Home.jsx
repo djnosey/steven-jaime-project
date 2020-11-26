@@ -14,7 +14,7 @@ function Home(props) {
           <h3>Sorry! No results matched that search</h3>
         </div>
       ) : null}
-      <h4>Check out some of our awesome products to trade!</h4>
+      <h4 id="home-text">Check out some of our awesome products to trade!</h4>
       <div className="columnContainer">
         <div className="mainHomeContainer">
           {products.map((product, index) => {
